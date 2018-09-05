@@ -1,3 +1,16 @@
-<div class="dishes">
-  <app-dishes-list-item *ngFor="let dish of dishes" [dish]="dish"></app-dishes-list-item>
+<div class="menu">
+  <div class="menu-buttons">
+    <div class="pizza">
+      <button>Pizza</button>
+    </div>
+    <div class="pasta">
+      <button>Makaron</button>
+    </div>
+    <div class="beverage">
+      <button>Napoj</button>
+    </div>
+  </div>
+  <div class="dishes">
+    <app-dishes-list-item *ngFor="let dish of dishes" [dish]="dish"></app-dishes-list-item>
+  </div>
 </div>
