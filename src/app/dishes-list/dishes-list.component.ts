@@ -1,37 +1,30 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 
-import {Dish} from "../models/dish.model";
+import {Dish} from '../models/dish.model';
+import {DishesService} from '../dishes.service';
+import {Subscription} from 'rxjs/internal/Subscription';
 
 @Component({
   selector: 'app-dishes-list',
   templateUrl: './dishes-list.component.html',
   styleUrls: ['./dishes-list.component.scss']
 })
-export class DishesListComponent implements OnInit {
+export class DishesListComponent implements OnInit, OnDestroy {
 
-  readonly dishes = [
-    <Dish>{
-      id: 1,
-      name: "Pizza Margherita",
-      isAvailable: true,
-      description: "Sos, ser",
-      type: "pizza",
-      price: 22
-    },
-    <Dish>{
-      id: 2,
-      name: "Pizza asdsadsa",
-      isAvailable: true,
-      description: "Sos, ser, pieczarki",
-      type: "pizza",
-      price: 30
-    },
-  ];
+  dishes: Dish[];
+  sub: Subscription;
 
-  constructor() {
+  constructor(readonly service: DishesService) {
+
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.sub = this.service.getDishes()
+      .subscribe(res => this.dishes = res)
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 
 }
