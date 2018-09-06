@@ -1,9 +1,19 @@
 <div class="basket">
   <h1>Basket</h1>
-  <div class="basket-items">
+<!--  <div class="basket-items">
     <app-dishes-list-item *ngFor="let dish of dishes" [dish]="dish"></app-dishes-list-item>
-  </div>
-  <div>
+  </div>-->
 
+  <div class="basket-items">
+    <div class="basket-item" *ngFor="let dish of dishes">
+      <div class="description">
+        <h3>{{dish.name}}</h3>
+        <p>{{dish.description}}</p>
+      </div>
+      <div>
+        <p>Cena: {{dish.price}}</p>
+      </div>
+    </div>
   </div>
+  <a routerLink="/">Back</a>
 </div>

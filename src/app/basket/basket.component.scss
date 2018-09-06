@@ -1,4 +1,13 @@
+h1 {
+  display: block;
+}
+
 .basket {
   display: flex;
   justify-content: center;
+}
+
+.basket-item {
+  display: flex;
+  justify-content: space-between;
 }
