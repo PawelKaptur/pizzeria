@@ -12,6 +12,9 @@
     <div class="beverage">
       <button (click)="getBeverage()">Napoj</button>
     </div>
+    <div>
+      <button>Zamowienie</button>
+    </div>
   </div>
   <div class="dishes">
     <app-dishes-list-item *ngFor="let dish of dishes" [dish]="dish"></app-dishes-list-item>
