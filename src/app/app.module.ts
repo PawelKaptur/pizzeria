@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { DishesListComponent } from './dishes-list/dishes-list.component';
 import { DishesListItemComponent } from './dishes-list-item/dishes-list-item.component';
 import {HttpClientModule} from '@angular/common/http';
+import { BasketComponent } from './basket/basket.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DishesListComponent,
-    DishesListItemComponent
+    DishesListItemComponent,
+    BasketComponent
   ],
   imports: [
     BrowserModule,

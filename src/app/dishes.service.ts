@@ -8,7 +8,10 @@ import {Observable} from 'rxjs/internal/Observable';
 })
 export class DishesService {
 
+  basketDishes: Dish[];
+
   constructor(readonly http: HttpClient) {
+    this.basketDishes = [];
   }
 
   getDishes(): Observable<Dish[]> {
@@ -25,6 +28,14 @@ export class DishesService {
 
   getBeverage(): Observable<Dish[]> {
     return this.http.get<Dish[]>('/api/dishes/?type=beverage');
+  }
+
+  getBasketDishes(){
+    return this.basketDishes;
+  }
+
+  addDishToBasket(dish: Dish){
+    this.basketDishes.push(dish);
   }
 
   getDish(id: number): Observable<Dish> {
