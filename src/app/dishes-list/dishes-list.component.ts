@@ -23,6 +23,21 @@ export class DishesListComponent implements OnInit, OnDestroy {
       .subscribe(res => this.dishes = res)
   }
 
+  getPizza(): void {
+    this.sub = this.service.getPizza()
+      .subscribe(res => this.dishes = res)
+  }
+
+  getPasta(): void {
+    this.sub = this.service.getPasta()
+      .subscribe(res => this.dishes = res)
+  }
+
+  getBeverage(): void {
+    this.sub = this.service.getBeverage()
+      .subscribe(res => this.dishes = res)
+  }
+
   ngOnDestroy(): void {
     this.sub.unsubscribe();
   }

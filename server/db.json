@@ -17,28 +17,28 @@
       "price": "23.50"
     },
     {
-      "id": 3,
-      "name": "Kebeb w bułce",
-      "isAvailable": true,
-      "description": "Chrupiąca bułka z dodatkiem kebabu drobiowego, kapusty pekińskiej, pomidora, ogórka zielonego",
-      "type": "fastfood",
-      "price": "13.90"
-    },
-    {
       "id": 4,
-      "name": "Spagetti Bolognese",
+      "name": "Spaghetti Bolognese",
       "isAvailable": false,
       "description": "Sos boloński",
-      "type": "spagetti",
+      "type": "pasta",
       "price": "14"
     },
     {
       "id": 5,
-      "name": "Spagetti Siciliana",
+      "name": "Spaghetti Siciliana",
       "isAvailable": true,
       "description": "Sos boloński z szynką i kukurydzą",
-      "type": "spagetti",
+      "type": "pasta",
       "price": "17.50"
+    },
+    {
+      "id": 6,
+      "name": "Harnas",
+      "isAvailable": true,
+      "description": "Dobre piwko",
+      "type": "beverage",
+      "price": "8.00"
     }
   ],
   "orders": [

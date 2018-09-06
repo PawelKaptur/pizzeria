@@ -1,13 +1,16 @@
 <div class="menu">
   <div class="menu-buttons">
+    <div class="menu">
+      <button (click)="ngOnInit()">Menu</button>
+    </div>
     <div class="pizza">
-      <button>Pizza</button>
+      <button (click)="getPizza()">Pizza</button>
     </div>
     <div class="pasta">
-      <button>Makaron</button>
+      <button (click)="getPasta()">Makaron</button>
     </div>
     <div class="beverage">
-      <button>Napoj</button>
+      <button (click)="getBeverage()">Napoj</button>
     </div>
   </div>
   <div class="dishes">

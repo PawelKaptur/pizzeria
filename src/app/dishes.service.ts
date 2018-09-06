@@ -15,6 +15,18 @@ export class DishesService {
     return this.http.get<Dish[]>('/api/dishes');
   }
 
+  getPizza(): Observable<Dish[]> {
+    return this.http.get<Dish[]>('/api/dishes/?type=pizza');
+  }
+
+  getPasta(): Observable<Dish[]> {
+    return this.http.get<Dish[]>('/api/dishes/?type=pasta');
+  }
+
+  getBeverage(): Observable<Dish[]> {
+    return this.http.get<Dish[]>('/api/dishes/?type=beverage');
+  }
+
   getDish(id: number): Observable<Dish> {
     return this.http.get<Dish>(`/api/dishes/${id}`);
   }

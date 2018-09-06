@@ -1,9 +1,12 @@
-<div class="dish">
-  <h3>{{dish.name}}</h3>
-  <ul>
-    <li>Opis: {{dish.description}}</li>
-    <li>Typ: {{dish.type}}</li>
-    <li>Cena: {{dish.price}}</li>
-  </ul>
-  <button>Dodaj do koszyka</button>
+<div class="menu">
+  <div class="item">
+    <div class="description">
+      <h3>{{dish.name}}</h3>
+      <p>{{dish.description}}</p>
+    </div>
+    <div>
+      <p>Cena: {{dish.price}}</p>
+      <button>Dodaj do koszyka</button>
+    </div>
+  </div>
 </div>
