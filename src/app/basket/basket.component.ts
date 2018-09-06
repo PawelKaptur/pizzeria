@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Dish} from "../models/dish.model";
 import {DishesService} from "../dishes.service";
 
@@ -10,8 +10,8 @@ import {DishesService} from "../dishes.service";
 })
 export class BasketComponent implements OnInit {
 
-  @Input() dish: Dish;
   dishes: Dish[];
+  @Output() deletes = new EventEmitter<Dish>();
 
   constructor(readonly service: DishesService) { }
 
@@ -19,9 +19,20 @@ export class BasketComponent implements OnInit {
     this.getBasketDishes();
   }
 
-  getBasketDishes(): Dish[] {
+  getBasketDishes(): void {
     this.dishes = this.service.getBasketDishes();
-    return this.dishes;
+  }
+
+/*  deleteFromBasket(dish: Dish, event: Event){
+    this.deletes.emit(dish);
+    this.service.deleteFromBasket(dish);
+    event.stopPropagation();
+  }*/
+
+  deleteFromBasket(index: number, event: Event){
+    //this.deletes.emit(dish);
+    this.service.deleteFromBasket(index);
+    event.stopPropagation();
   }
 
 }

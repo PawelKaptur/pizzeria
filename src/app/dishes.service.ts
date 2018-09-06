@@ -38,6 +38,16 @@ export class DishesService {
     this.basketDishes.push(dish);
   }
 
+/*  deleteFromBasket(dish: Dish){
+    //alert(this.basketDishes.length);
+    this.basketDishes.splice(dish.id, 1);
+  }*/
+
+  deleteFromBasket(index: number){
+    //alert(this.basketDishes.length);
+    this.basketDishes.splice(index, 1);
+  }
+
   getDish(id: number): Observable<Dish> {
     return this.http.get<Dish>(`/api/dishes/${id}`);
   }

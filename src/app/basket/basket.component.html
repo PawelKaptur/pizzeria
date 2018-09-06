@@ -1,9 +1,5 @@
 <div class="basket">
-  <h1>Basket</h1>
-<!--  <div class="basket-items">
-    <app-dishes-list-item *ngFor="let dish of dishes" [dish]="dish"></app-dishes-list-item>
-  </div>-->
-
+  <h1>Koszyk</h1>
   <div class="basket-items">
     <div class="basket-item" *ngFor="let dish of dishes">
       <div class="description">
@@ -12,6 +8,7 @@
       </div>
       <div>
         <p>Cena: {{dish.price}}</p>
+        <button (click)="deleteFromBasket(dishes.indexOf(dish), $event)">Usun z koszyka</button>
       </div>
     </div>
   </div>
