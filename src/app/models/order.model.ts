@@ -1,9 +1,12 @@
 export interface Order {
   id: number;
   dishIds: number[];
-  address: string;
   state: string;
-  date: string;
+  date: Date;
   firstName: string;
   lastName: string;
+  city: string;
+  street: string;
+  telephone: number;
+  email: string;
 }
