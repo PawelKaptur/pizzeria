@@ -8,6 +8,8 @@ import { DishesListItemComponent } from './dishes-list-item/dishes-list-item.com
 import {HttpClientModule} from '@angular/common/http';
 import { BasketComponent } from './basket/basket.component';
 import { AddressComponent } from './address/address.component';
+import { FormsModule }   from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { AddressComponent } from './address/address.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

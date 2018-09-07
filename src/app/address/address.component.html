@@ -1,6 +1,5 @@
 <h2>Adres dostawy</h2>
-
-<form id="adress-form">
+<form [formGroup]="angularForm" id="address-form">
   <table>
     <tr>
       <th></th>
@@ -8,28 +7,54 @@
     </tr>
     <tr>
       <td>Imie:</td>
-      <td><input type="text"></td>
+      <td><input type="text" formControlName="firstName"></td>
     </tr>
     <tr>
       <td>Nazwisko:</td>
-      <td><input type="text"></td>
+      <td><input type="text" formControlName="lastName"></td>
     </tr>
     <tr>
       <td>Telefon:</td>
-      <td><input type="tel"></td>
+      <td><input type="tel" formControlName="telephone"></td>
     </tr>
     <tr>
       <td>Email:</td>
-      <td><input type="email"></td>
+      <td><input type="email" formControlName="email"></td>
     </tr>
     <tr>
       <td>Miasto:</td>
-      <td><input type="text"></td>
+      <td><input type="text" formControlName="city"></td>
     </tr>
     <tr>
       <td>Ulica:</td>
-      <td><input type="text"></td>
+      <td><input type="text" formControlName="street"></td>
     </tr>
   </table>
 </form>
+<!--<form [formGroup]="angularForm" id="address-form1">
+
+  <label>Imie:
+    <input type="text" formControlName="firstName">
+  </label>
+
+  <label>Nazwisko:
+    <input type="text" formControlName="lastName">
+  </label>
+
+  <label>Telefon:
+    <input type="tel" formControlName="telephone">
+  </label>
+
+  <label>Email:
+    <input type="email" formControlName="email">
+  </label>
+  <label>Miasto:
+    <input type="text" formControlName="city">
+  </label>
+  <label>Ulica:
+    <input type="text" formControlName="street">
+  </label>
+
+</form>-->
+<button type="submit" (click)="createOrder()">Zloz zamowienie</button>
 <app-basket></app-basket>

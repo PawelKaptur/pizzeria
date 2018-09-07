@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Dish} from './models/dish.model';
 import {Observable} from 'rxjs/internal/Observable';
+import {v} from "@angular/core/src/render3";
 
 @Injectable({
   providedIn: 'root'
@@ -32,11 +33,11 @@ export class DishesService {
     return this.http.get<Dish[]>('/api/dishes/?type=beverage');
   }
 
-  getBasketDishes(){
+  getBasketDishes(): Dish[]{
     return this.basketDishes;
   }
 
-  addDishToBasket(dish: Dish){
+  addDishToBasket(dish: Dish): void{
     this.basketDishes.push(dish);
     this.calculateBasketCost();
   }
@@ -47,7 +48,7 @@ export class DishesService {
     return this.basketCost;
   }
 
-  deleteFromBasket(index: number){
+  deleteFromBasket(index: number): void{
     this.basketDishes.splice(index, 1);
     this.calculateBasketCost();
   }

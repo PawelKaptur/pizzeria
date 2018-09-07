@@ -44,7 +44,10 @@
   "orders": [
     {
       "id": 1,
-      "dishIds": [1, 5]
+      "dishIds": [
+        1,
+        5
+      ]
     }
   ],
   "users": [
