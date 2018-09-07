@@ -49,6 +49,7 @@ export class DishesService {
 
   deleteFromBasket(index: number){
     this.basketDishes.splice(index, 1);
+    this.calculateBasketCost();
   }
 
   getDish(id: number): Observable<Dish> {

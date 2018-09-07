@@ -25,6 +25,10 @@ export class BasketComponent implements OnInit {
 
   getBasketDishes(): void {
     this.dishes = this.service.getBasketDishes();
+    this.setBasketCost();
+  }
+
+  setBasketCost(): void{
     document.getElementById('basket-cost').innerText = this.service.calculateBasketCost().toString();
   }
 
@@ -46,6 +50,7 @@ export class BasketComponent implements OnInit {
   deleteFromBasket(index: number, event: Event){
     //this.deletes.emit(dish);
     this.service.deleteFromBasket(index);
+    this.setBasketCost();
     this.index = 0;
     event.stopPropagation();
   }
