@@ -4,8 +4,10 @@
       <h3>{{dish.name}}</h3>
       <p>{{dish.description}}</p>
     </div>
-    <div>
+    <div class="price">
       <p>Cena: {{dish.price}}</p>
+    </div>
+    <div class="button-add">
       <button class="add-to-basket" (click)="addItemToBasket()">Dodaj do koszyka</button>
     </div>
   </div>

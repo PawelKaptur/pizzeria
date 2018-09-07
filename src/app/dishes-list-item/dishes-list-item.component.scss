@@ -3,8 +3,17 @@
   justify-content: space-between;
 }
 
-.menu {
+.price{
   display: flex;
   align-items: center;
-  justify-content: center;
+  margin-right: 20px;
+}
+
+.button-add {
+  display: flex;
+  align-items: center;
+}
+
+.description {
+  margin-right: 50px;
 }

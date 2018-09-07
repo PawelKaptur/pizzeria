@@ -1,16 +1,21 @@
+<h1>Koszyk</h1>
 <div class="basket">
-  <h1>Koszyk</h1>
   <div class="basket-items">
-    <div class="basket-item" *ngFor="let dish of dishes">
+    <div [id]="setIdsForBasketItems()" class="basket-item" *ngFor="let dish of dishes">
       <div class="description">
         <h3>{{dish.name}}</h3>
         <p>{{dish.description}}</p>
       </div>
-      <div>
+      <div class="price">
         <p>Cena: {{dish.price}}</p>
-        <button (click)="deleteFromBasket(dishes.indexOf(dish), $event)">Usun z koszyka</button>
+      </div>
+      <div class="button-delete">
+        <button [id]="setIdsForButtons()" (click)="deleteFromBasket(dishes.indexOf(dish), $event)">Usun z koszyka
+        </button>
       </div>
     </div>
   </div>
-  <a routerLink="/">Back</a>
+  <div>
+    <a routerLink="/">Back</a>
+  </div>
 </div>
