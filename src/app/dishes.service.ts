@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Dish} from './models/dish.model';
 import {Observable} from 'rxjs/internal/Observable';
-import {v} from "@angular/core/src/render3";
 
 @Injectable({
   providedIn: 'root'
