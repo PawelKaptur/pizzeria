@@ -9,9 +9,11 @@ import {Observable} from 'rxjs/internal/Observable';
 export class DishesService {
 
   basketDishes: Dish[];
+  basketCost: number;
 
   constructor(readonly http: HttpClient) {
     this.basketDishes = [];
+    this.basketCost = 0;
   }
 
   getDishes(): Observable<Dish[]> {
@@ -36,6 +38,13 @@ export class DishesService {
 
   addDishToBasket(dish: Dish){
     this.basketDishes.push(dish);
+    this.calculateBasketCost();
+  }
+
+  calculateBasketCost(): number{
+    this.basketCost = 0;
+    this.basketDishes.forEach(dish => this.basketCost+= parseFloat(dish.price));
+    return this.basketCost;
   }
 
   deleteFromBasket(index: number){

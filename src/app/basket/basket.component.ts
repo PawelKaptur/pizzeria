@@ -9,7 +9,7 @@ import {DishesService} from "../dishes.service";
   styleUrls: ['./basket.component.scss']
 })
 export class BasketComponent implements OnInit {
-  
+
   dishes: Dish[];
   index: number;
 
@@ -25,6 +25,7 @@ export class BasketComponent implements OnInit {
 
   getBasketDishes(): void {
     this.dishes = this.service.getBasketDishes();
+    document.getElementById('basket-cost').innerText = this.service.calculateBasketCost().toString();
   }
 
   setIdsForBasketItems(): string {
