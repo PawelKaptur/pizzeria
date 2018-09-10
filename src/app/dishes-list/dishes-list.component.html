@@ -16,7 +16,7 @@
       <button routerLink="/summary">Zamowienie</button>
     </div>
     <div>
-      <button routerLink="/orders-list">Lista zamowien</button>
+      <button routerLink="/orders-list" *ngIf="loginService.isLogged">Lista zamowien</button>
     </div>
   </div>
   <div class="dishes">
