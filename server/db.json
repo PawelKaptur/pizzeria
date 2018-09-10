@@ -43,43 +43,37 @@
   ],
   "orders": [
     {
-      "id": 1,
       "dishIds": [
         1,
-        5
-      ]
+        6
+      ],
+      "firstName": "Ryszard",
+      "lastName": "Peja",
+      "city": "Poznan",
+      "street": "Jezyce 21/37",
+      "email": "rychu.peja@gmail.com",
+      "telephone": "131214889",
+      "state": "Accepted",
+      "date": "2018-09-10T09:19:29.348Z",
+      "id": 1
     },
     {
       "dishIds": [
-        2,
-        2,
-        2,
-        2,
-        2,
         4,
-        4
+        2,
+        1,
+        5,
+        6
       ],
-      "firstName": "dsfdsf",
-      "lastName": "dsfdsf",
-      "city": "dsfdsfds",
-      "street": "fdsfdsdsf",
-      "email": "fdsfdsf",
-      "telephone": "fdsfds",
+      "firstName": "Adam",
+      "lastName": "Malysz",
+      "city": "Zakopane",
+      "street": "Warszawska 14",
+      "email": "adam.malysz",
+      "telephone": "887324543",
       "state": "Accepted",
-      "date": "2018-09-10T07:10:36.891Z",
+      "date": "2018-09-10T09:24:52.395Z",
       "id": 2
-    },
-    {
-      "dishIds": [],
-      "firstName": "dsfds",
-      "lastName": "dsfdsf",
-      "city": "dsfdsf",
-      "street": "dsfs",
-      "email": "dsf",
-      "telephone": "fdsf",
-      "state": "Accepted",
-      "date": "2018-09-10T08:32:17.751Z",
-      "id": 3
     }
   ],
   "users": [

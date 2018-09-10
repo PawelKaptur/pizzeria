@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DishListItemDetailsComponent } from './dishes-list-item-details/dish-list-item-details.component';
 import { OrdersListComponent } from './orders-list/orders-list.component';
 import { OrdersListItemComponent } from './orders-list-item/orders-list-item.component';
+import { OrdersListItemDetailsComponent } from './orders-list-item-details/orders-list-item-details.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { OrdersListItemComponent } from './orders-list-item/orders-list-item.com
     AddressComponent,
     DishListItemDetailsComponent,
     OrdersListComponent,
-    OrdersListItemComponent
+    OrdersListItemComponent,
+    OrdersListItemDetailsComponent
   ],
   imports: [
     BrowserModule,

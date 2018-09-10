@@ -3,8 +3,6 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Dish} from '../models/dish.model';
 import {DishesService} from '../dishes.service';
 import {Subscription} from 'rxjs/internal/Subscription';
-import {OrdersService} from "../orders.service";
-import {Order} from "../models/order.model";
 
 @Component({
   selector: 'app-dishes-list',
@@ -14,11 +12,9 @@ import {Order} from "../models/order.model";
 export class DishesListComponent implements OnInit, OnDestroy {
 
   dishes: Dish[];
-  orders: Order[];
   sub: Subscription;
 
-  constructor(readonly service: DishesService,
-              readonly ordersService: OrdersService) {
+  constructor(readonly service: DishesService) {
 
   }
 

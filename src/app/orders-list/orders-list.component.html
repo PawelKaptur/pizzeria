@@ -1,12 +1,5 @@
 <div class="menu">
-  <div class="menu-buttons">
-    <div>
-      <button routerLink="/summary">Zamowienie</button>
-    </div>
-    <div>
-      <button routerLink="/orders-list">Lista zamowien</button>
-    </div>
-  </div>
+  <h1>Lista zamowien</h1>
   <div class="dishes">
     <app-orders-list-item class="order" *ngFor="let order of orders" [order]="order"></app-orders-list-item>
   </div>
