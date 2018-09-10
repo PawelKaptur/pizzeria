@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Order} from "../models/order.model";
 import {OrdersService} from "../orders.service";
 import {ActivatedRoute} from "@angular/router";
+import {Subscription} from "rxjs/internal/Subscription";
 
 @Component({
   selector: 'app-orders-list-item-details',
@@ -11,6 +12,7 @@ import {ActivatedRoute} from "@angular/router";
 export class OrdersListItemDetailsComponent implements OnInit {
 
   order: Order;
+  sub: Subscription;
 
   constructor(readonly ordersService: OrdersService,
               readonly route: ActivatedRoute) { }
@@ -20,4 +22,20 @@ export class OrdersListItemDetailsComponent implements OnInit {
 
     this.ordersService.getOrder(+id).subscribe(res => this.order = res);
   }
+
+  changeStatusOfOrderToAccepted(){
+    this.order.state = 'Zaakceptowane';
+    this.sub = this.ordersService.changeStatusOfOrder(this.order).subscribe();
+  }
+
+  changeStatusOfOrderToSend(){
+    this.order.state = 'Wyslane';
+    this.sub = this.ordersService.changeStatusOfOrder(this.order).subscribe();
+  }
+
+  changeStatusOfOrderToDelivered(){
+    this.order.state = 'Dostarczone';
+    this.sub = this.ordersService.changeStatusOfOrder(this.order).subscribe();
+  }
+
 }
