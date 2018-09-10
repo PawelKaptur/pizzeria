@@ -12,6 +12,7 @@ import {ActivatedRoute} from "@angular/router";
 export class DishListItemDetailsComponent implements OnInit {
 
   dish: Dish;
+  sub: Subscription;
 
   constructor(readonly dishesService: DishesService,
               readonly route: ActivatedRoute) {
@@ -23,5 +24,9 @@ export class DishListItemDetailsComponent implements OnInit {
     this.dishesService.getDish(+id).subscribe(res => this.dish = res);
   }
 
+  changeAvailabilityOfDish(){
+    this.dish.isAvailable = !this.dish.isAvailable;
+    this.sub = this.dishesService.changeAvailabilityOfDish(this.dish).subscribe();
+  }
 
 }

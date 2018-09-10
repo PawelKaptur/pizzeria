@@ -24,17 +24,17 @@ export class OrdersListItemDetailsComponent implements OnInit {
   }
 
   changeStatusOfOrderToAccepted(){
-    this.order.state = 'Zaakceptowane';
+    this.order.state = 'Accepted';
     this.sub = this.ordersService.changeStatusOfOrder(this.order).subscribe();
   }
 
   changeStatusOfOrderToSend(){
-    this.order.state = 'Wyslane';
+    this.order.state = 'Send';
     this.sub = this.ordersService.changeStatusOfOrder(this.order).subscribe();
   }
 
   changeStatusOfOrderToDelivered(){
-    this.order.state = 'Dostarczone';
+    this.order.state = 'Delivered';
     this.sub = this.ordersService.changeStatusOfOrder(this.order).subscribe();
   }
 

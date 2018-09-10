@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Pizza Margherita",
-      "isAvailable": true,
+      "isAvailable": false,
       "description": "Sos, ser",
       "type": "pizza",
       "price": "22"
@@ -71,7 +71,7 @@
       "street": "Warszawska 14",
       "email": "adam.malysz@gmail.com",
       "telephone": "887324543",
-      "state": "Accepted",
+      "state": "Wyslane",
       "date": "2018-09-10T09:24:52.395Z",
       "id": 2
     }
