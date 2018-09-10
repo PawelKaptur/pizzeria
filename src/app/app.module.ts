@@ -10,6 +10,7 @@ import { BasketComponent } from './basket/basket.component';
 import { AddressComponent } from './address/address.component';
 import { FormsModule }   from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DishListItemDetailsComponent } from './dish-list-item-details/dish-list-item-details.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     DishesListComponent,
     DishesListItemComponent,
     BasketComponent,
-    AddressComponent
+    AddressComponent,
+    DishListItemDetailsComponent
   ],
   imports: [
     BrowserModule,

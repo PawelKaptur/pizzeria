@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Dish} from '../models/dish.model';
 import {DishesService} from "../dishes.service";
+import {Observable} from "rxjs/internal/Observable";
 
 @Component({
   selector: 'app-dishes-list-item',
@@ -11,10 +12,9 @@ export class DishesListItemComponent {
 
   @Input() dish: Dish;
 
-  constructor(readonly service: DishesService) { }
+  constructor(readonly dishesService: DishesService) { }
 
-  addItemToBasket(){
-    this.service.addDishToBasket(this.dish);
+  addItemToBasket(): void{
+    this.dishesService.addDishToBasket(this.dish);
   }
-
 }

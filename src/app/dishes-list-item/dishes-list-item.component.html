@@ -10,5 +10,8 @@
     <div class="button-add">
       <button class="add-to-basket" (click)="addItemToBasket()">Dodaj do koszyka</button>
     </div>
+    <div>
+      <button class="button-preview" [routerLink]="['/dishes', dish.id]">Podglad dania</button>
+    </div>
   </div>
 </div>
