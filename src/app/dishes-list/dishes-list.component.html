@@ -3,16 +3,16 @@
     <div class="menu">
       <button (click)="getAllDishes()">List of dishes</button>
     </div>
-    <div class="pizza">
+    <div class="pizza" *ngIf="!loginService.isLogged">
       <button (click)="getPizza()">Pizza</button>
     </div>
-    <div class="pasta">
+    <div class="pasta" *ngIf="!loginService.isLogged">
       <button (click)="getPasta()">Makaron</button>
     </div>
-    <div class="beverage">
+    <div class="beverage" *ngIf="!loginService.isLogged">
       <button (click)="getBeverage()">Napoj</button>
     </div>
-    <div>
+    <div *ngIf="!loginService.isLogged">
       <button routerLink="/summary">Zamowienie</button>
     </div>
     <div>

@@ -1,0 +1,14 @@
+<form [formGroup]="loginForm">
+  <label>
+    Name:
+    <input type="text" formControlName="name"/>
+  </label>
+  <label>
+    Password:
+    <input type="password" formControlName="password"/>
+  </label>
+  <button type="submit" (click)="login()">Login</button>
+
+</form>
+
+<a href="#" routerLink="/">Strona glowna</a>

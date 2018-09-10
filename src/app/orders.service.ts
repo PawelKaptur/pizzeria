@@ -15,14 +15,14 @@ export class OrdersService {
   }
 
   getOrders(): Observable<Order[]>{
-    return this.http.get<Order[]>('api/orders');
+    return this.http.get<Order[]>('/api/orders');
   }
 
   getOrder(id: number): Observable<Order>{
-    return this.http.get<Order>(`api/orders/${id}`);
+    return this.http.get<Order>(`/api/orders/${id}`);
   }
 
   changeStatusOfOrder(order: Order): Observable<Order>{
-    return this.http.put<Order>(`api/orders/${order.id}`, order);
+    return this.http.put<Order>(`/api/orders/${order.id}`, order);
   }
 }

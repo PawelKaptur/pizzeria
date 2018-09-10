@@ -6,6 +6,7 @@ import {AddressComponent} from "./address/address.component";
 import {DishListItemDetailsComponent} from "./dishes-list-item-details/dish-list-item-details.component";
 import {OrdersListComponent} from "./orders-list/orders-list.component";
 import {OrdersListItemDetailsComponent} from "./orders-list-item-details/orders-list-item-details.component";
+import {LoginComponent} from "./login/login.component";
 
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path: 'summary', component: AddressComponent},
   {path: 'dishes/:id', component: DishListItemDetailsComponent},
   {path: 'orders-list', component: OrdersListComponent},
-  {path: 'orders/:id', component: OrdersListItemDetailsComponent}
+  {path: 'orders/:id', component: OrdersListItemDetailsComponent},
+  {path: 'login', component: LoginComponent}
 ];
 
 @NgModule({
