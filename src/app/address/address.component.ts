@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
-import {OrderService} from "../order.service";
+import {OrdersService} from "../orders.service";
 import {Subscription} from "rxjs/internal/Subscription";
 import {Order} from "../models/order.model";
 import {DishesService} from "../dishes.service";
@@ -27,7 +27,7 @@ export class AddressComponent implements OnInit {
     street: new FormControl()
   });
 
-  constructor(readonly orderService: OrderService, readonly dishesService: DishesService) {
+  constructor(readonly orderService: OrdersService, readonly dishesService: DishesService) {
     this.dishesIds = [];
     this.order = <Order>{};
   }

@@ -6,11 +6,15 @@ import {Observable} from "rxjs/internal/Observable";
 @Injectable({
   providedIn: 'root'
 })
-export class OrderService {
+export class OrdersService {
 
   constructor(readonly http: HttpClient) { }
 
   createOrder(order: Order): Observable<Order>{
     return this.http.post<Order>('/api/orders', order);
+  }
+
+  getOrders(): Observable<Order[]>{
+    return this.http.get<Order[]>('api/orders');
   }
 }
