@@ -32,26 +32,10 @@ export class BasketComponent implements OnInit {
     document.getElementById('basket-cost').innerText = this.service.calculateBasketCost().toString();
   }
 
-/*  setIdsForBasketItems(): string {
-    return 'item_' + ++this.index;
-  }
-
-  setIdsForButtons(): string {
-    return 'button_item_' + this.index;
-  }
-
-  setAttributes(): void {
-    let i;
-    for(i = 0; i < this.dishes.length; i++){
-      document.getElementById('button_item_' + i).setAttribute('(click)', 'deleteFromBasket('+i+', $event)');
-    }
-  }*/
-
-  deleteFromBasket(index: number, event: Event){
-    //this.deletes.emit(dish);
+  deleteFromBasket(index: number){
     this.service.deleteFromBasket(index);
     this.setBasketCost();
     this.index = 0;
-    event.stopPropagation();
+
   }
 }

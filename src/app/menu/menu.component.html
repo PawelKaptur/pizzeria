@@ -7,16 +7,16 @@
       <button (click)="getPizza()">Pizza</button>
     </div>
     <div class="pasta" *ngIf="!loginService.isLogged">
-      <button (click)="getPasta()">Makaron</button>
+      <button (click)="getPasta()">Pasta</button>
     </div>
     <div class="beverage" *ngIf="!loginService.isLogged">
-      <button (click)="getBeverage()">Napoj</button>
+      <button (click)="getBeverage()">Beverage</button>
     </div>
     <div *ngIf="!loginService.isLogged">
-      <button routerLink="/summary">Zamowienie</button>
+      <button routerLink="/summary">Order</button>
     </div>
     <div>
-      <button routerLink="/orders-list" *ngIf="loginService.isLogged">Lista zamowien</button>
+      <button routerLink="/orders-list" *ngIf="loginService.isLogged">Orders list</button>
     </div>
   </div>
   <div class="dishes">
