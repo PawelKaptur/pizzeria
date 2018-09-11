@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Pizza Margherita",
-      "isAvailable": false,
+      "isAvailable": true,
       "description": "Sos, ser",
       "type": "pizza",
       "price": "22"
@@ -71,9 +71,24 @@
       "street": "Warszawska 14",
       "email": "adam.malysz@gmail.com",
       "telephone": "887324543",
-      "state": "Wyslane",
+      "state": "Send",
       "date": "2018-09-10T09:24:52.395Z",
       "id": 2
+    },
+    {
+      "firstName": "Eminem",
+      "lastName": "Sobota",
+      "telephone": "123412321",
+      "email": "eminem@gmail.com",
+      "city": "Lubon",
+      "street": "Reja 5",
+      "dishIds": [
+        5,
+        6
+      ],
+      "state": "Accepted",
+      "date": "2018-09-11T06:16:08.348Z",
+      "id": 3
     }
   ],
   "users": [

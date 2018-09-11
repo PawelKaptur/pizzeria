@@ -19,7 +19,7 @@ export class AddressComponent implements OnInit {
   dishesIds: number[];
 
   addressForm = new FormGroup({
-    name: new FormControl(),
+    firstName: new FormControl(),
     lastName: new FormControl(),
     telephone: new FormControl(),
     email: new FormControl(),
@@ -37,13 +37,8 @@ export class AddressComponent implements OnInit {
   }
 
   createOrder(): void {
+    this.order = this.addressForm.value;
     this.order.dishIds = this.dishesIds;
-    this.order.firstName = this.addressForm.get('firstName').value;
-    this.order.lastName = this.addressForm.get('lastName').value;
-    this.order.city = this.addressForm.get('city').value;
-    this.order.street = this.addressForm.get('street').value;
-    this.order.email = this.addressForm.get('email').value;
-    this.order.telephone = this.addressForm.get('telephone').value;
     this.order.state = 'Accepted';
     this.order.date = new Date();
     this.sub = this.orderService.createOrder(this.order).subscribe();
