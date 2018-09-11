@@ -42,6 +42,7 @@ export class AddressComponent implements OnInit {
     this.order.state = 'Accepted';
     this.order.date = new Date();
     this.sub = this.orderService.createOrder(this.order).subscribe();
+    alert("The delivery is accepted.");
   }
 
   getDishes(): void {

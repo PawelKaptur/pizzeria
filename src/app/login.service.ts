@@ -19,4 +19,8 @@ export class LoginService {
   loginAdmin(){
     this.isLogged = true;
   }
+
+  logout(){
+    this.isLogged = false;
+  }
 }
