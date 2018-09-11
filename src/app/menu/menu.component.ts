@@ -1,26 +1,25 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-
-import {Dish} from '../models/dish.model';
-import {DishesService} from '../dishes.service';
-import {Subscription} from 'rxjs/internal/Subscription';
 import {LoginService} from "../login.service";
+import {Dish} from "../models/dish.model";
+import {Subscription} from "rxjs/internal/Subscription";
+import {DishesService} from "../dishes.service";
+import {Order} from "../models/order.model";
 
 @Component({
-  selector: 'app-dishes-list',
-  templateUrl: './dishes-list.component.html',
-  styleUrls: ['./dishes-list.component.scss']
+  selector: 'app-menu',
+  templateUrl: './menu.component.html',
+  styleUrls: ['./menu.component.scss']
 })
-export class DishesListComponent implements OnInit, OnDestroy {
+export class MenuComponent implements OnInit, OnDestroy {
 
   dishes: Dish[];
+  orders: Order[];
   sub: Subscription;
 
-  constructor(readonly dishesService: DishesService,
-              readonly loginService: LoginService) {
+  constructor(readonly loginService: LoginService,
+              private readonly dishesService: DishesService) { }
 
-  }
-
-  ngOnInit(): void {
+  ngOnInit() {
     this.getAllDishes();
   }
 
@@ -47,4 +46,5 @@ export class DishesListComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.sub.unsubscribe();
   }
+
 }
