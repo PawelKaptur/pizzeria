@@ -1,8 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {LoginService} from "../login.service";
+import {LoginService} from "../login/login.service";
 import {Dish} from "../models/dish.model";
 import {Subscription} from "rxjs/internal/Subscription";
-import {DishesService} from "../dishes.service";
+import {DishesService} from "./dishes.service";
 import {Order} from "../models/order.model";
 
 @Component({

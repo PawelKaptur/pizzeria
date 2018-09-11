@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Dish} from "../models/dish.model";
-import {DishesService} from "../dishes.service";
+import {DishesService} from "../menu/dishes.service";
 
 
 @Component({
