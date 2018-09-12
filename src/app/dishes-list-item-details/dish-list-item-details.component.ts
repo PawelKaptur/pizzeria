@@ -11,7 +11,7 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class DishListItemDetailsComponent implements OnInit {
 
-  dish: Dish;
+  dish: Dish = <Dish>{};
   sub: Subscription;
 
   constructor(readonly dishesService: DishesService,
@@ -20,7 +20,6 @@ export class DishListItemDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-
     this.dishesService.getDish(+id).subscribe(res => this.dish = res);
   }
 

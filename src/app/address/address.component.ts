@@ -17,16 +17,6 @@ export class AddressComponent implements OnInit {
   order: Order;
   dishes: Dish[];
   dishesIds: number[];
-
-  /*  addressForm = new FormGroup({
-      firstName: new FormControl(),
-      lastName: new FormControl(),
-      telephone: new FormControl(),
-      email: new FormControl(),
-      city: new FormControl(),
-      street: new FormControl()
-    });*/
-
   addressForm: FormGroup;
 
   constructor(private readonly orderService: OrdersService, readonly dishesService: DishesService) {

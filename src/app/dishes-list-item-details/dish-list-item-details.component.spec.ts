@@ -3,12 +3,8 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {DishListItemDetailsComponent} from './dish-list-item-details.component';
 import {DishesService} from "../menu/dishes.service";
 import {HttpClient, HttpHandler} from "@angular/common/http";
-import {ActivatedRoute, RouterModule} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 import {RouterTestingModule} from "@angular/router/testing";
-
-class ActivatedRouteMock {
-
-}
 
 describe('DishListItemDetailsComponent', () => {
   let component: DishListItemDetailsComponent;
@@ -21,14 +17,21 @@ describe('DishListItemDetailsComponent', () => {
         DishesService,
         HttpClient,
         HttpHandler,
-        ActivatedRoute,
-        {provide: ActivatedRoute, useClass: ActivatedRouteMock},
+        { provide: ActivatedRoute, useValue: {
+            snapshot: {
+              paramMap: {
+                get: (key: string) => {
+                  return 1;
+                }
+              }
+            },
+          }
+        },
       ],
       imports: [
         RouterTestingModule
       ]
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {
