@@ -1,6 +1,12 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AddressComponent } from './address.component';
+import {AddressComponent} from './address.component';
+import {OrdersService} from "../orders-list/orders.service";
+import {DishesService} from "../menu/dishes.service";
+import {ReactiveFormsModule} from "@angular/forms";
+import {BasketComponent} from "../basket/basket.component";
+import {HttpClient, HttpHandler} from "@angular/common/http";
+
 
 describe('AddressComponent', () => {
   let component: AddressComponent;
@@ -8,9 +14,17 @@ describe('AddressComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddressComponent ]
+      declarations: [AddressComponent,
+        BasketComponent],
+      providers: [
+        OrdersService,
+        DishesService,
+        HttpClient,
+        HttpHandler
+      ],
+      imports: [ReactiveFormsModule]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

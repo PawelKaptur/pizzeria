@@ -27,7 +27,7 @@ export class AddressComponent implements OnInit {
     street: new FormControl()
   });
 
-  constructor(readonly orderService: OrdersService, readonly dishesService: DishesService) {
+  constructor(private readonly orderService: OrdersService, readonly dishesService: DishesService) {
     this.dishesIds = [];
     this.order = <Order>{};
   }
