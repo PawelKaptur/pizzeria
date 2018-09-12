@@ -3,18 +3,17 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs/internal/Observable";
 import {User} from "../models/user.model";
 import {Router} from "@angular/router";
-import {RoleGuard} from "../guards/RoleGuard";
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  isLogged;
+  isLogged = false;
 
   constructor(private readonly http: HttpClient,
               private readonly route: Router) {
-    this.isLogged = false;
+
   }
 
   getUsers(): Observable<User[]> {

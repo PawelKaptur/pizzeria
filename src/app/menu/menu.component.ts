@@ -1,9 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {LoginService} from "../login/login.service";
 import {Dish} from "../models/dish.model";
-import {Subscription} from "rxjs/internal/Subscription";
 import {DishesService} from "./dishes.service";
-import {Order} from "../models/order.model";
 import {Observable} from "rxjs/internal/Observable";
 
 @Component({
@@ -12,7 +10,7 @@ import {Observable} from "rxjs/internal/Observable";
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
-  
+
   dishes$: Observable<Dish[]>;
 
   constructor(readonly loginService: LoginService,

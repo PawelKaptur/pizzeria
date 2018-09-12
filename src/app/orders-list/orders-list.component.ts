@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Order} from "../models/order.model";
 import {OrdersService} from "./orders.service";
-import {Subscription} from "rxjs/internal/Subscription";
-import {RoleGuard} from "../guards/RoleGuard";
+import {Observable} from "rxjs/internal/Observable";
 
 @Component({
   selector: 'app-orders-list',
@@ -11,13 +10,12 @@ import {RoleGuard} from "../guards/RoleGuard";
 })
 export class OrdersListComponent implements OnInit {
 
-  orders: Order[];
-  sub: Subscription;
+  orders$: Observable<Order[]>;
 
   constructor(readonly ordersService: OrdersService) { }
 
   ngOnInit() {
-    this.sub = this.ordersService.getOrders().subscribe(res => this.orders = res);
+    this.orders$ = this.ordersService.getOrders();
   }
 
 }

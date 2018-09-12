@@ -15,6 +15,7 @@ import {OrdersListItemComponent} from './orders-list-item/orders-list-item.compo
 import {OrdersListItemDetailsComponent} from './orders-list-item-details/orders-list-item-details.component';
 import {LoginComponent} from './login/login.component';
 import {MenuComponent} from './menu/menu.component';
+import {RouteGuard} from "./guards/RouteGuard";
 
 
 @NgModule({
@@ -37,7 +38,7 @@ import {MenuComponent} from './menu/menu.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [RouteGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {
