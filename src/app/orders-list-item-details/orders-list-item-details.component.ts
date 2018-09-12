@@ -11,7 +11,7 @@ import {Subscription} from "rxjs/internal/Subscription";
 })
 export class OrdersListItemDetailsComponent implements OnInit {
 
-  order: Order;
+  order: Order = <Order>{};
   sub: Subscription;
 
   constructor(readonly ordersService: OrdersService,

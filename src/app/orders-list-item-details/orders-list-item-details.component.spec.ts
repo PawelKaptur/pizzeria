@@ -4,6 +4,7 @@ import {OrdersListItemDetailsComponent} from './orders-list-item-details.compone
 import {HttpClient, HttpHandler} from "@angular/common/http";
 import {ActivatedRoute} from "@angular/router";
 
+
 describe('OrdersListItemDetailsComponent', () => {
   let component: OrdersListItemDetailsComponent;
   let fixture: ComponentFixture<OrdersListItemDetailsComponent>;
@@ -13,7 +14,17 @@ describe('OrdersListItemDetailsComponent', () => {
       declarations: [OrdersListItemDetailsComponent],
       providers: [HttpClient,
         HttpHandler,
-        ActivatedRoute],
+        { provide: ActivatedRoute, useValue: {
+            snapshot: {
+              paramMap: {
+                get: (key: string) => {
+                  return 1;
+                }
+              }
+            },
+          }
+        },
+      ],
       imports: []
     })
       .compileComponents();

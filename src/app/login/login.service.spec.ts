@@ -4,13 +4,18 @@ import { LoginService } from './login.service';
 import {HttpClient, HttpHandler} from "@angular/common/http";
 import {Router} from "@angular/router";
 
+class RouterMock {
+
+}
+
 describe('LoginService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [LoginService,
       HttpClient,
       HttpHandler,
-      Router]
+        {provide: Router, useClass: RouterMock}
+      ]
     });
   });
 

@@ -5,6 +5,10 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClient, HttpHandler} from "@angular/common/http";
 import {Router} from "@angular/router";
 
+class RouterMock {
+
+}
+
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
@@ -14,7 +18,8 @@ describe('LoginComponent', () => {
       declarations: [LoginComponent],
       providers: [HttpClient,
         HttpHandler,
-        Router],
+        {provide: Router, useClass: RouterMock}
+      ],
       imports: [ReactiveFormsModule]
     })
       .compileComponents();
