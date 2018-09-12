@@ -19,7 +19,7 @@
       <button routerLink="/orders-list" *ngIf="loginService.isLogged">Orders list</button>
     </div>
   </div>
-  <div class="dishes">
+  <div class="dishes" *ngIf="dishes$ | async as dishes">
     <app-dishes-list-item class="dish" *ngFor="let dish of dishes" [dish]="dish"></app-dishes-list-item>
   </div>
 </div>

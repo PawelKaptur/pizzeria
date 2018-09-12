@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Order} from "../models/order.model";
 import {OrdersService} from "./orders.service";
 import {Subscription} from "rxjs/internal/Subscription";
+import {RoleGuard} from "../guards/RoleGuard";
 
 @Component({
   selector: 'app-orders-list',

@@ -1,50 +1,41 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {LoginService} from "../login/login.service";
 import {Dish} from "../models/dish.model";
 import {Subscription} from "rxjs/internal/Subscription";
 import {DishesService} from "./dishes.service";
 import {Order} from "../models/order.model";
+import {Observable} from "rxjs/internal/Observable";
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })
-export class MenuComponent implements OnInit, OnDestroy {
-
-  dishes: Dish[];
-  orders: Order[];
-  sub: Subscription;
+export class MenuComponent implements OnInit {
+  
+  dishes$: Observable<Dish[]>;
 
   constructor(readonly loginService: LoginService,
-              private readonly dishesService: DishesService) { }
+              private readonly dishesService: DishesService) {
+  }
 
   ngOnInit() {
     this.getAllDishes();
   }
 
   getAllDishes(): void {
-    this.sub = this.dishesService.getDishes()
-      .subscribe(res => this.dishes = res);
+    this.dishes$ = this.dishesService.getDishes();
   }
 
   getPizza(): void {
-    this.sub = this.dishesService.getPizza()
-      .subscribe(res => this.dishes = res)
+    this.dishes$ = this.dishesService.getPizza();
   }
 
   getPasta(): void {
-    this.sub = this.dishesService.getPasta()
-      .subscribe(res => this.dishes = res)
+    this.dishes$ = this.dishesService.getPasta();
   }
 
   getBeverage(): void {
-    this.sub = this.dishesService.getBeverage()
-      .subscribe(res => this.dishes = res)
+    this.dishes$ = this.dishesService.getBeverage();
   }
-
-  ngOnDestroy(): void {
-    this.sub.unsubscribe();
-  }
-
 }

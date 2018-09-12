@@ -7,14 +7,15 @@ import {OrdersListComponent} from "./orders-list/orders-list.component";
 import {OrdersListItemDetailsComponent} from "./orders-list-item-details/orders-list-item-details.component";
 import {LoginComponent} from "./login/login.component";
 import {MenuComponent} from "./menu/menu.component";
+import {RoleGuard} from "./guards/RoleGuard";
 
 
 const routes: Routes = [
   {path: '', component: MenuComponent},
   {path: 'basket', component: BasketComponent},
   {path: 'summary', component: AddressComponent},
-  {path: 'dishes/:id', component: DishListItemDetailsComponent},
-  {path: 'orders-list', component: OrdersListComponent},
+  {path: 'dishes/:id', component: DishListItemDetailsComponent, canActivate: [RoleGuard]},
+  {path: 'orders-list', component: OrdersListComponent, canActivate: [RoleGuard]},
   {path: 'orders/:id', component: OrdersListItemDetailsComponent},
   {path: 'login', component: LoginComponent}
 ];
