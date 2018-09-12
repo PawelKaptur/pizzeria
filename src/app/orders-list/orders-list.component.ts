@@ -13,10 +13,10 @@ export class OrdersListComponent implements OnInit {
   orders: Order[];
   sub: Subscription;
 
-  constructor(readonly orderService: OrdersService) { }
+  constructor(readonly ordersService: OrdersService) { }
 
   ngOnInit() {
-    this.sub = this.orderService.getOrders().subscribe(res => this.orders = res);
+    this.sub = this.ordersService.getOrders().subscribe(res => this.orders = res);
   }
 
 }
