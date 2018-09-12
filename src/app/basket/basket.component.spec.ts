@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BasketComponent } from './basket.component';
+import {DishesService} from "../menu/dishes.service";
+import {HttpClient, HttpHandler} from "@angular/common/http";
 
 describe('BasketComponent', () => {
   let component: BasketComponent;
@@ -8,7 +10,12 @@ describe('BasketComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BasketComponent ]
+      declarations: [ BasketComponent ],
+      providers: [
+        DishesService,
+        HttpClient,
+        HttpHandler
+      ]
     })
     .compileComponents();
   }));

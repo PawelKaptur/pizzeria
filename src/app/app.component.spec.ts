@@ -1,6 +1,8 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import {HttpClient, HttpHandler} from "@angular/common/http";
+import {DishesService} from "./menu/dishes.service";
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({

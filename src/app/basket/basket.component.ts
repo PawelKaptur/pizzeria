@@ -13,8 +13,6 @@ export class BasketComponent implements OnInit {
   dishes: Dish[];
   index: number;
 
-  @Output() deletes = new EventEmitter<Dish>();
-
   constructor(readonly service: DishesService) {
     this.index = -1;
   }
@@ -36,6 +34,5 @@ export class BasketComponent implements OnInit {
     this.service.deleteFromBasket(index);
     this.setBasketCost();
     this.index = 0;
-
   }
 }

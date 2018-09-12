@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DishListItemDetailsComponent } from './dish-list-item-details.component';
+import {DishesService} from "../menu/dishes.service";
+import {HttpClient, HttpHandler} from "@angular/common/http";
+import {ActivatedRoute} from "@angular/router";
 
 describe('DishListItemDetailsComponent', () => {
   let component: DishListItemDetailsComponent;
@@ -8,7 +11,13 @@ describe('DishListItemDetailsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DishListItemDetailsComponent ]
+      declarations: [ DishListItemDetailsComponent ],
+      providers: [
+        DishesService,
+        HttpClient,
+        HttpHandler,
+        ActivatedRoute
+      ]
     })
     .compileComponents();
   }));
