@@ -62,4 +62,16 @@ describe('DishesService', () => {
 
     expect(service.basketDishes.length).toBe(2);
   }));
+
+  it('should calculate cost of basket items', inject([DishesService], (service: DishesService) => {
+    const dish = <Dish>{
+      price: '5'
+    };
+
+    service.addDishToBasket(dish);
+    service.addDishToBasket(dish);
+    service.addDishToBasket(dish);
+
+    expect(service.calculateBasketCost()).toBe(15);
+  }));
 });
