@@ -1,7 +1,6 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Dish} from '../models/dish.model';
 import {DishesService} from "../menu/dishes.service";
-import {Observable} from "rxjs/internal/Observable";
 import {LoginService} from "../login/login.service";
 
 @Component({
