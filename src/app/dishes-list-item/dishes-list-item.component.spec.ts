@@ -7,6 +7,7 @@ import {BasketComponent} from "../basket/basket.component";
 import {AddressComponent} from "../address/address.component";
 import {DishListItemDetailsComponent} from "../dishes-list-item-details/dish-list-item-details.component";
 
+
 describe('DishesListItemComponent', () => {
   let component: DishesListItemComponent;
   let fixture: ComponentFixture<DishesListItemComponent>;
@@ -18,7 +19,6 @@ describe('DishesListItemComponent', () => {
         BasketComponent,
         AddressComponent,
         DishListItemDetailsComponent],
-      providers: [],
       imports: [AppRoutingModule]
     })
       .compileComponents();

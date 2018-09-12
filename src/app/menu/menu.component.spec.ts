@@ -11,6 +11,8 @@ import {DishListItemDetailsComponent} from "../dishes-list-item-details/dish-lis
 import {OrdersListItemDetailsComponent} from "../orders-list-item-details/orders-list-item-details.component";
 import {OrdersListComponent} from "../orders-list/orders-list.component";
 import {LoginComponent} from "../login/login.component";
+import {ReactiveFormsModule} from "@angular/forms";
+import {OrdersListItemComponent} from "../orders-list-item/orders-list-item.component";
 
 describe('MenuComponent', () => {
   let component: MenuComponent;
@@ -25,10 +27,12 @@ describe('MenuComponent', () => {
         DishListItemDetailsComponent,
         OrdersListComponent,
         OrdersListItemDetailsComponent,
-        LoginComponent],
+        LoginComponent,
+        OrdersListItemComponent],
       providers: [LoginService,
         DishesService],
-      imports: [AppRoutingModule]
+      imports: [AppRoutingModule,
+      ReactiveFormsModule]
     })
       .compileComponents();
   }));
