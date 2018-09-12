@@ -1,7 +1,7 @@
 <h2>Address of delivery</h2>
-<form [formGroup]="addressForm" id="address-form">
+<form [formGroup]="addressForm" id="address-form" (ngSubmit)="createOrder()">
   <label>First Name:
-    <input type="text" formControlName="firstName">
+    <input id="firstName" type="text" formControlName="firstName" required>
   </label>
   <label>Last name:
     <input type="text" formControlName="lastName">
@@ -18,6 +18,8 @@
   <label>Street: <br>
     <input type="text" formControlName="street">
   </label>
+  <button type="submit" [disabled]="!addressForm.valid">Take order</button>
 </form>
-<button type="submit" (click)="createOrder()">Take order</button>
+
+
 <app-basket></app-basket>

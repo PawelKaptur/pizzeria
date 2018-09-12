@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {OrdersService} from "../orders-list/orders.service";
 import {Subscription} from "rxjs/internal/Subscription";
 import {Order} from "../models/order.model";
@@ -18,14 +18,16 @@ export class AddressComponent implements OnInit {
   dishes: Dish[];
   dishesIds: number[];
 
-  addressForm = new FormGroup({
-    firstName: new FormControl(),
-    lastName: new FormControl(),
-    telephone: new FormControl(),
-    email: new FormControl(),
-    city: new FormControl(),
-    street: new FormControl()
-  });
+  /*  addressForm = new FormGroup({
+      firstName: new FormControl(),
+      lastName: new FormControl(),
+      telephone: new FormControl(),
+      email: new FormControl(),
+      city: new FormControl(),
+      street: new FormControl()
+    });*/
+
+  addressForm: FormGroup;
 
   constructor(private readonly orderService: OrdersService, readonly dishesService: DishesService) {
     this.dishesIds = [];
@@ -33,6 +35,35 @@ export class AddressComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.addressForm = new FormGroup({
+      'firstName': new FormControl('',[
+        Validators.required,
+        Validators.minLength(3)
+      ]),
+      'lastName': new FormControl('',[
+        Validators.required,
+        Validators.minLength(3)
+      ]),
+      'telephone': new FormControl('',[
+        Validators.required,
+        Validators.minLength(9),
+        Validators.maxLength(9)
+      ]),
+      'email': new FormControl('',[
+        Validators.required,
+        Validators.minLength(5),
+        Validators.email
+      ]),
+      'city': new FormControl('',[
+        Validators.required,
+        Validators.minLength(3)
+      ]),
+      'street': new FormControl('',[
+        Validators.required,
+        Validators.minLength(5)
+      ]),
+    });
+
     this.getDishes();
   }
 
