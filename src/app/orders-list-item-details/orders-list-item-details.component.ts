@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Order} from "../models/order.model";
 import {OrdersService} from "../orders-list/orders.service";
 import {ActivatedRoute} from "@angular/router";
@@ -14,13 +14,14 @@ export class OrdersListItemDetailsComponent implements OnInit {
   order: Order = <Order>{};
   sub: Subscription;
 
-  constructor(readonly ordersService: OrdersService,
-              readonly route: ActivatedRoute) { }
+  constructor(private readonly ordersService: OrdersService,
+              private readonly route: ActivatedRoute) { }
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
 
-    this.ordersService.getOrder(+id).subscribe(res => this.order = res);
+    this.ordersService.getOrder(+id)
+      .subscribe(res => this.order = res);
   }
 
   changeStatusOfOrderToAccepted(){

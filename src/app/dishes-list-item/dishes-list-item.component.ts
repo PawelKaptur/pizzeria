@@ -12,7 +12,7 @@ export class DishesListItemComponent {
 
   @Input() dish: Dish = <Dish>{};
 
-  constructor(readonly dishesService: DishesService,
+  constructor(private readonly dishesService: DishesService,
               readonly loginService: LoginService) { }
 
   addItemToBasket(): void{

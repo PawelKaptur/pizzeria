@@ -14,17 +14,19 @@ export class DishesListItemDetailsComponent implements OnInit {
   dish: Dish = <Dish>{};
   sub: Subscription;
 
-  constructor(readonly dishesService: DishesService,
-              readonly route: ActivatedRoute) {
+  constructor(private readonly dishesService: DishesService,
+              private readonly route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.dishesService.getDish(+id).subscribe(res => this.dish = res);
+    this.dishesService.getDish(+id)
+      .subscribe(res => this.dish = res);
   }
 
   changeAvailabilityOfDish(){
     this.dish.isAvailable = !this.dish.isAvailable;
     this.sub = this.dishesService.changeAvailabilityOfDish(this.dish).subscribe();
   }
+
 }

@@ -13,7 +13,7 @@ export class BasketComponent implements OnInit {
   dishes: Dish[];
   index: number;
 
-  constructor(readonly service: DishesService) {
+  constructor(private readonly service: DishesService) {
     this.index = -1;
   }
 

@@ -12,7 +12,7 @@ export class OrdersListComponent implements OnInit {
 
   orders$: Observable<Order[]>;
 
-  constructor(readonly ordersService: OrdersService) { }
+  constructor(private readonly ordersService: OrdersService) { }
 
   ngOnInit() {
     this.orders$ = this.ordersService.getOrders();

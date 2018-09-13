@@ -19,36 +19,37 @@ export class AddressComponent implements OnInit {
   dishesIds: number[];
   addressForm: FormGroup;
 
-  constructor(private readonly orderService: OrdersService, readonly dishesService: DishesService) {
+  constructor(private readonly orderService: OrdersService,
+              private readonly dishesService: DishesService) {
     this.dishesIds = [];
     this.order = <Order>{};
   }
 
   ngOnInit() {
     this.addressForm = new FormGroup({
-      'firstName': new FormControl('',[
+      'firstName': new FormControl('', [
         Validators.required,
         Validators.minLength(3)
       ]),
-      'lastName': new FormControl('',[
+      'lastName': new FormControl('', [
         Validators.required,
         Validators.minLength(3)
       ]),
-      'telephone': new FormControl('',[
+      'telephone': new FormControl('', [
         Validators.required,
         Validators.minLength(9),
         Validators.maxLength(9)
       ]),
-      'email': new FormControl('',[
+      'email': new FormControl('', [
         Validators.required,
         Validators.minLength(5),
         Validators.email
       ]),
-      'city': new FormControl('',[
+      'city': new FormControl('', [
         Validators.required,
         Validators.minLength(3)
       ]),
-      'street': new FormControl('',[
+      'street': new FormControl('', [
         Validators.required,
         Validators.minLength(5)
       ]),

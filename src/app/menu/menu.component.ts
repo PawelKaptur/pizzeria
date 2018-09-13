@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {LoginService} from "../login/login.service";
 import {Dish} from "../models/dish.model";
 import {DishesService} from "./dishes.service";
 import {Observable} from "rxjs/internal/Observable";
+import {Subject} from "rxjs/internal/Subject";
 
 @Component({
   selector: 'app-menu',

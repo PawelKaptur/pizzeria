@@ -8,7 +8,7 @@ import {Observable} from "rxjs/internal/Observable";
 })
 export class OrdersService {
 
-  constructor(readonly http: HttpClient) { }
+  constructor(private readonly http: HttpClient) { }
 
   createOrder(order: Order): Observable<Order>{
     return this.http.post<Order>('/api/orders', order);
