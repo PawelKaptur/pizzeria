@@ -11,10 +11,9 @@ import {DishesService} from "../menu/dishes.service";
 export class BasketComponent implements OnInit {
 
   dishes: Dish[];
-  index: number;
 
-  constructor(private readonly service: DishesService) {
-    this.index = -1;
+  constructor(private readonly dishesService: DishesService) {
+
   }
 
   ngOnInit(): void {
@@ -22,17 +21,16 @@ export class BasketComponent implements OnInit {
   }
 
   getBasketDishes(): void {
-    this.dishes = this.service.getBasketDishes();
+    this.dishes = this.dishesService.getBasketDishes();
     this.setBasketCost();
   }
 
   setBasketCost(): void{
-    document.getElementById('basket-cost').innerText = this.service.calculateBasketCost().toString();
+    document.getElementById('basket-cost').innerText = this.dishesService.calculateBasketCost().toString();
   }
 
   deleteFromBasket(index: number){
-    this.service.deleteFromBasket(index);
+    this.dishesService.deleteFromBasket(index);
     this.setBasketCost();
-    this.index = 0;
   }
 }

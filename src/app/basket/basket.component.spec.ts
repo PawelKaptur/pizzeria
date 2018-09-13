@@ -3,6 +3,8 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {BasketComponent} from './basket.component';
 import {DishesService} from "../menu/dishes.service";
 import {HttpClientModule} from "@angular/common/http";
+import {of} from "rxjs/internal/observable/of";
+import {Dish} from "../models/dish.model";
 
 describe('BasketComponent', () => {
   let component: BasketComponent;
@@ -28,4 +30,42 @@ describe('BasketComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should get basket dishes and return length of two', () => {
+    let dish: Dish = <Dish>{};
+    let dishes: Dish[];
+
+    dishes = [dish, dish];
+
+    const dishesService = TestBed.get(DishesService);
+    const getBasketDishesSpy = spyOn(dishesService, 'getBasketDishes');
+
+    getBasketDishesSpy.and.returnValue(dishes);
+
+    component.getBasketDishes();
+
+    expect(component.dishes.length).toBe(2);
+    expect(getBasketDishesSpy).toHaveBeenCalled();
+  });
+
+  it('should call calculateBasketCost form DishesService', () => {
+    const dishesService = TestBed.get(DishesService);
+    const calculateBasketCostSpy = spyOn(dishesService, 'calculateBasketCost');
+
+    calculateBasketCostSpy.and.returnValue(20);
+
+    component.setBasketCost();
+
+    expect(calculateBasketCostSpy).toHaveBeenCalled();
+  });
+
+  it('should call deleteFromBasket from DishesService', () => {
+    const dishesService = TestBed.get(DishesService);
+    const deleteFromBasket = spyOn(dishesService, 'deleteFromBasket');
+
+    component.deleteFromBasket(1);
+
+    expect(deleteFromBasket).toHaveBeenCalled();
+  });
+
 });

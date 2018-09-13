@@ -54,7 +54,7 @@ describe('AddressComponent', () => {
     expect(createOrderSpy).toHaveBeenCalled();
   });
 
-  it('should', () => {
+  it('should have two object in dishesIds', () => {
     const dishesService = TestBed.get(DishesService);
     const getBasketDishesSpy = spyOn(dishesService, 'getBasketDishes');
 
