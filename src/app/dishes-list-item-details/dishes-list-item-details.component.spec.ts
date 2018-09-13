@@ -1,17 +1,17 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {DishListItemDetailsComponent} from './dish-list-item-details.component';
+import {DishesListItemDetailsComponent} from './dishes-list-item-details.component';
 import {DishesService} from "../menu/dishes.service";
 import {HttpClientModule} from "@angular/common/http";
 import {RouterTestingModule} from "@angular/router/testing";
 
-describe('DishListItemDetailsComponent', () => {
-  let component: DishListItemDetailsComponent;
-  let fixture: ComponentFixture<DishListItemDetailsComponent>;
+describe('DishesListItemDetailsComponent', () => {
+  let component: DishesListItemDetailsComponent;
+  let fixture: ComponentFixture<DishesListItemDetailsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [DishListItemDetailsComponent],
+      declarations: [DishesListItemDetailsComponent],
       providers: [
         DishesService,
       ],
@@ -23,7 +23,7 @@ describe('DishListItemDetailsComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DishListItemDetailsComponent);
+    fixture = TestBed.createComponent(DishesListItemDetailsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

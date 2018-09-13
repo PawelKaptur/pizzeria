@@ -6,10 +6,10 @@ import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-dish-list-item-details',
-  templateUrl: './dish-list-item-details.component.html',
-  styleUrls: ['./dish-list-item-details.component.scss']
+  templateUrl: './dishes-list-item-details.component.html',
+  styleUrls: ['./dishes-list-item-details.component.scss']
 })
-export class DishListItemDetailsComponent implements OnInit {
+export class DishesListItemDetailsComponent implements OnInit {
 
   dish: Dish = <Dish>{};
   sub: Subscription;

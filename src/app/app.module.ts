@@ -9,7 +9,7 @@ import {BasketComponent} from './basket/basket.component';
 import {AddressComponent} from './address/address.component';
 import {FormsModule} from '@angular/forms';
 import {ReactiveFormsModule} from '@angular/forms';
-import {DishListItemDetailsComponent} from './dishes-list-item-details/dish-list-item-details.component';
+import {DishesListItemDetailsComponent} from './dishes-list-item-details/dishes-list-item-details.component';
 import {OrdersListComponent} from './orders-list/orders-list.component';
 import {OrdersListItemComponent} from './orders-list-item/orders-list-item.component';
 import {OrdersListItemDetailsComponent} from './orders-list-item-details/orders-list-item-details.component';
@@ -24,7 +24,7 @@ import {RouteGuard} from "./guards/RouteGuard";
     DishesListItemComponent,
     BasketComponent,
     AddressComponent,
-    DishListItemDetailsComponent,
+    DishesListItemDetailsComponent,
     OrdersListComponent,
     OrdersListItemComponent,
     OrdersListItemDetailsComponent,
