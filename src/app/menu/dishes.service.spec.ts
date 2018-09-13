@@ -1,19 +1,15 @@
 import {inject, TestBed} from '@angular/core/testing';
 
 import {DishesService} from './dishes.service';
-import {HttpClient, HttpHandler} from "@angular/common/http";
+import {HttpClientModule} from "@angular/common/http";
 import {Dish} from "../models/dish.model";
-
-import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 describe('DishesService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [DishesService,
-        HttpClient,
-        HttpHandler],
-      imports: [HttpClientTestingModule]
+      providers: [DishesService],
+      imports: [HttpClientModule]
     });
   });
 

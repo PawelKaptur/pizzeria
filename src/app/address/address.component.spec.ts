@@ -5,7 +5,7 @@ import {OrdersService} from "../orders-list/orders.service";
 import {DishesService} from "../menu/dishes.service";
 import {ReactiveFormsModule} from "@angular/forms";
 import {BasketComponent} from "../basket/basket.component";
-import {HttpClient, HttpHandler} from "@angular/common/http";
+import {HttpClientModule} from "@angular/common/http";
 
 
 describe('AddressComponent', () => {
@@ -18,11 +18,10 @@ describe('AddressComponent', () => {
         BasketComponent],
       providers: [
         OrdersService,
-        DishesService,
-        HttpClient,
-        HttpHandler
+        DishesService
       ],
-      imports: [ReactiveFormsModule]
+      imports: [ReactiveFormsModule,
+        HttpClientModule]
     })
       .compileComponents();
   }));
