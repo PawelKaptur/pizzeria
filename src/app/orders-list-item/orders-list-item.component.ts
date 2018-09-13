@@ -9,7 +9,7 @@ import {Order} from "../models/order.model";
 })
 export class OrdersListItemComponent implements OnInit {
 
-  @Input() order: Order;
+  @Input() order: Order = <Order>{};
 
   constructor() { }
 

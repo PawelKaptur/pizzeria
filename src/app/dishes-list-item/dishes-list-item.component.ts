@@ -10,7 +10,7 @@ import {LoginService} from "../login/login.service";
 })
 export class DishesListItemComponent {
 
-  @Input() dish: Dish;
+  @Input() dish: Dish = <Dish>{};
 
   constructor(readonly dishesService: DishesService,
               readonly loginService: LoginService) { }

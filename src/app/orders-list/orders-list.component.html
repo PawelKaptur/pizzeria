@@ -1,7 +1,5 @@
-<div class="menu">
-  <h1>Orders list</h1>
-  <div class="orders" *ngIf="orders$ | async as orders">
-    <app-orders-list-item class="order" *ngFor="let order of orders" [order]="order"></app-orders-list-item>
-  </div>
+<h1>Orders list</h1>
+<div class="orders" *ngIf="orders$ | async as orders">
+  <app-orders-list-item class="order" *ngFor="let order of orders" [order]="order"></app-orders-list-item>
 </div>
-<a routerLink="/">Back</a>
+<button [routerLink]="['/']">Back</button>
