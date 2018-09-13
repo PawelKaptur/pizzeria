@@ -27,5 +27,4 @@ export class DishesListItemDetailsComponent implements OnInit {
     this.dish.isAvailable = !this.dish.isAvailable;
     this.sub = this.dishesService.changeAvailabilityOfDish(this.dish).subscribe();
   }
-
 }

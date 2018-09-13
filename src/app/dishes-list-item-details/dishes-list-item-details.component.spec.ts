@@ -4,6 +4,7 @@ import {DishesListItemDetailsComponent} from './dishes-list-item-details.compone
 import {DishesService} from "../menu/dishes.service";
 import {HttpClientModule} from "@angular/common/http";
 import {RouterTestingModule} from "@angular/router/testing";
+import {Dish} from "../models/dish.model";
 
 describe('DishesListItemDetailsComponent', () => {
   let component: DishesListItemDetailsComponent;
@@ -30,5 +31,12 @@ describe('DishesListItemDetailsComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should change availability of dish to true', () => {
+    let dish: Dish = <Dish>{isAvailable: false};
+    component.dish = dish;
+    component.changeAvailabilityOfDish();
+    expect(dish.isAvailable).toBe(true);
   });
 });
