@@ -34,7 +34,7 @@ describe('DishesListItemComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should', () => {
+  it('should call addDishToBasket from DishesService', () => {
     let dish: Dish = <Dish>{};
     const dishesService = TestBed.get(DishesService);
     const addDishToBasket = spyOn(dishesService, 'addDishToBasket');

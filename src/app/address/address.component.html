@@ -18,6 +18,6 @@
   <label>Street: <br>
     <input type="text" formControlName="street">
   </label>
-  <button type="submit" [disabled]="!addressForm.valid">Place order</button>
+  <button type="submit" [disabled]="!(addressForm.valid && dishesIds.length >= 1)">Place order</button>
 </form>
 <app-basket></app-basket>
