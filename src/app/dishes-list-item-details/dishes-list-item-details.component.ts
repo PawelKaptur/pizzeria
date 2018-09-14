@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Dish} from "../models/dish.model";
 import {DishesService} from "../menu/dishes.service";
 import {Subscription} from "rxjs/internal/Subscription";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-dish-list-item-details',
@@ -15,7 +15,8 @@ export class DishesListItemDetailsComponent implements OnInit {
   sub: Subscription;
 
   constructor(private readonly dishesService: DishesService,
-              private readonly route: ActivatedRoute) {
+              private readonly route: ActivatedRoute,
+              private readonly router: Router) {
   }
 
   ngOnInit(): void {
@@ -29,4 +30,9 @@ export class DishesListItemDetailsComponent implements OnInit {
     this.sub = this.dishesService.changeAvailabilityOfDish(this.dish).subscribe();
   }
 
+  deleteDish(){
+    this.sub = this.dishesService.deleteDishFromDatabase(this.dish).subscribe();
+    this.router.navigate(['/']);
+    alert('The dish was removed from database.');
+  }
 }

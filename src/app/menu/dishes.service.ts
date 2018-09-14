@@ -63,4 +63,8 @@ export class DishesService {
   addDish(dish: Dish): Observable<Dish> {
     return this.http.post<Dish>('/api/dishes', dish);
   }
+
+  deleteDishFromDatabase(dish: Dish) {
+    return this.http.delete<Dish>(`/api/dishes/${dish.id}`);
+  }
 }

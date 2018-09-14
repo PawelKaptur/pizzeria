@@ -1,10 +1,11 @@
 <div class="order">
-    <p>Id: {{dish.id}}</p>
-    <p>Name: {{dish.name}}</p>
-    <p>Description: {{dish.description}}</p>
-    <p>Price: {{dish.price}}</p>
-    <p>Type: {{dish.type}}</p>
-    <p>Availability: {{dish.isAvailable}}</p>
-    <button (click)="changeAvailabilityOfDish()">Change availability</button>
+  <p>Id: {{dish.id}}</p>
+  <p>Name: {{dish.name}}</p>
+  <p>Description: {{dish.description}}</p>
+  <p>Price: {{dish.price}}</p>
+  <p>Type: {{dish.type}}</p>
+  <p>Availability: {{dish.isAvailable}}</p>
+  <button (click)="changeAvailabilityOfDish()">Change availability</button>
+  <button (click)="deleteDish()">Delete</button>
 </div>
 <button [routerLink]='["/"]'>back</button>
