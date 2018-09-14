@@ -1,0 +1,19 @@
+<h1>Add dish</h1>
+<form [formGroup]="addDishForm" (ngSubmit)="createDish()">
+  <label>Name:
+    <input type="text" formControlName="name">
+  </label>
+  <label>Description:
+    <input type="text" formControlName="description">
+  </label>
+  <label>Availability:
+    <input type="tel" formControlName="isAvailable">
+  </label>
+  <label>Type:
+    <input type="email" formControlName="type">
+  </label>
+  <label>Price:
+    <input type="text" formControlName="price">
+  </label>
+  <button type="submit" [disabled]="!addressForm.valid">Add dish</button>
+</form>

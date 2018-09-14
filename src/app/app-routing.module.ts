@@ -8,6 +8,7 @@ import {OrdersListItemDetailsComponent} from "./orders-list-item-details/orders-
 import {LoginComponent} from "./login/login.component";
 import {MenuComponent} from "./menu/menu.component";
 import {RouteGuard} from "./guards/RouteGuard";
+import {AddDishComponent} from "./add-dish/add-dish.component";
 
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path: 'dishes/:id', component: DishesListItemDetailsComponent, canActivate: [RouteGuard]},
   {path: 'orders', component: OrdersListComponent, canActivate: [RouteGuard]},
   {path: 'orders/:id', component: OrdersListItemDetailsComponent, canActivate: [RouteGuard]},
-  {path: 'login', component: LoginComponent}
+  {path: 'login', component: LoginComponent},
+  {path: 'adddish', component: AddDishComponent, canActivate: [RouteGuard]}
 ];
 
 @NgModule({

@@ -15,8 +15,11 @@
     <div *ngIf="!loginService.isLogged">
       <button routerLink="/summary">Order</button>
     </div>
-    <div>
-      <button routerLink="/orders" *ngIf="loginService.isLogged">Orders list</button>
+    <div *ngIf="loginService.isLogged">
+      <button routerLink="/orders" >Orders list</button>
+    </div>
+    <div *ngIf="loginService.isLogged">
+      <button routerLink="/adddish" >Add dish</button>
     </div>
   </div>
   <div class="dishes" *ngIf="dishes$ | async as dishes">

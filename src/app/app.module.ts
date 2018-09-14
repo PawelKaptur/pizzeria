@@ -16,6 +16,7 @@ import {OrdersListItemDetailsComponent} from './orders-list-item-details/orders-
 import {LoginComponent} from './login/login.component';
 import {MenuComponent} from './menu/menu.component';
 import {RouteGuard} from "./guards/RouteGuard";
+import { AddDishComponent } from './add-dish/add-dish.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {RouteGuard} from "./guards/RouteGuard";
     OrdersListItemComponent,
     OrdersListItemDetailsComponent,
     LoginComponent,
-    MenuComponent
+    MenuComponent,
+    AddDishComponent
   ],
   imports: [
     BrowserModule,
