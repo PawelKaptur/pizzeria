@@ -25,4 +25,8 @@ export class OrdersService {
   changeStatusOfOrder(order: Order): Observable<Order>{
     return this.http.put<Order>(`/api/orders/${order.id}`, order);
   }
+
+  removeOrderFromDatabase(order: Order) {
+    return this.http.delete<Order>(`/api/orders/${order.id}`);
+  }
 }

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Order} from "../models/order.model";
 import {OrdersService} from "../orders-list/orders.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Subscription} from "rxjs/internal/Subscription";
 
 @Component({
@@ -15,7 +15,8 @@ export class OrdersListItemDetailsComponent implements OnInit {
   sub: Subscription;
 
   constructor(private readonly ordersService: OrdersService,
-              private readonly route: ActivatedRoute) { }
+              private readonly route: ActivatedRoute,
+              private readonly router: Router) { }
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
@@ -37,6 +38,12 @@ export class OrdersListItemDetailsComponent implements OnInit {
   changeStatusOfOrderToDelivered(){
     this.order.state = 'Delivered';
     this.sub = this.ordersService.changeStatusOfOrder(this.order).subscribe();
+  }
+
+  removeOrder(){
+    this.sub = this.ordersService.removeOrderFromDatabase(this.order).subscribe();
+    this.router.navigate(['/orders']);
+    alert('Order was removed from database.');
   }
 
 }
