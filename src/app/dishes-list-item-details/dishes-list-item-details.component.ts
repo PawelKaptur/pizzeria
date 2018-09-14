@@ -82,6 +82,6 @@ export class DishesListItemDetailsComponent implements OnInit {
     }
 
     this.sub = this.dishesService.editDish(this.dish).subscribe();
-    alert('Edit');
+    alert('Dish was edited.');
   }
 }
