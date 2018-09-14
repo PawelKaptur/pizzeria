@@ -1,20 +1,20 @@
 {
   "dishes": [
     {
-      "id": 1,
       "name": "Pizza Margherita",
-      "isAvailable": true,
       "description": "Sos, ser",
+      "price": 22,
+      "isAvailable": "true",
       "type": "pizza",
-      "price": 22
+      "id": 1
     },
     {
-      "id": 2,
       "name": "Pizza Funghi",
-      "isAvailable": true,
       "description": "Sos, ser, pieczarki",
+      "price": 23.5,
+      "isAvailable": "false",
       "type": "pizza",
-      "price": 23.5
+      "id": 2
     },
     {
       "id": 4,

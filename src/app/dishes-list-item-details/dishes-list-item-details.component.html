@@ -1,4 +1,4 @@
-<div class="order">
+<!--<div class="dish">
   <p>Id: {{dish.id}}</p>
   <p>Name: {{dish.name}}</p>
   <p>Description: {{dish.description}}</p>
@@ -7,5 +7,34 @@
   <p>Availability: {{dish.isAvailable}}</p>
   <button (click)="changeAvailabilityOfDish()">Change availability</button>
   <button (click)="deleteDish()">Delete</button>
-</div>
+</div>-->
+<p>Id: {{dish.id}}</p>
+<form [formGroup]="dishForm">
+  <label>Name:
+    <input type="text" formControlName="name"/>
+  </label>
+  <label>Description:
+    <input type="text" formControlName="description"/>
+  </label>
+  <label> Price:
+    <input type="number" formControlName="price" />
+  </label>
+  <label> Type:
+    <select formControlName="type">
+      <option value="pizza">Pizza</option>
+      <option value="pasta">Pasta</option>
+      <option value="beverage">Beverage</option>
+    </select>
+  </label>
+  <label> Availability:
+    <select formControlName="isAvailable">
+      <option value="true">true</option>
+      <option value="false">false</option>
+    </select>
+  </label>
+
+</form>
+<button (click)="changeAvailabilityOfDish()">Change availability</button>
+<button (click)="deleteDish()">Delete</button>
+<button (click)="editDish()">Save</button>
 <button [routerLink]='["/"]'>back</button>

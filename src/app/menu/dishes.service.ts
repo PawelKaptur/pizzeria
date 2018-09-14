@@ -67,4 +67,8 @@ export class DishesService {
   deleteDishFromDatabase(dish: Dish) {
     return this.http.delete<Dish>(`/api/dishes/${dish.id}`);
   }
+
+  editDish(dish: Dish) {
+    return this.http.put<Dish>(`/api/dishes/${dish.id}`, dish);
+  }
 }
