@@ -6,7 +6,7 @@
       "isAvailable": true,
       "description": "Sos, ser",
       "type": "pizza",
-      "price": "22"
+      "price": 22
     },
     {
       "id": 2,
@@ -14,7 +14,7 @@
       "isAvailable": true,
       "description": "Sos, ser, pieczarki",
       "type": "pizza",
-      "price": "23.50"
+      "price": 23.5
     },
     {
       "id": 4,
@@ -22,7 +22,7 @@
       "isAvailable": false,
       "description": "Sos boloński",
       "type": "pasta",
-      "price": "14"
+      "price": 14
     },
     {
       "id": 5,
@@ -30,7 +30,7 @@
       "isAvailable": true,
       "description": "Sos boloński z szynką i kukurydzą",
       "type": "pasta",
-      "price": "17.50"
+      "price": 17.5
     },
     {
       "id": 6,
@@ -38,7 +38,15 @@
       "isAvailable": true,
       "description": "Dobre piwko",
       "type": "beverage",
-      "price": "8.00"
+      "price": 8
+    },
+    {
+      "name": "Mad dog",
+      "isAvailable": true,
+      "type": "beverage",
+      "price": 10,
+      "description": "Vodka with cherry juice and tabasco",
+      "id": 7
     }
   ],
   "orders": [

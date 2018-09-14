@@ -3,7 +3,6 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {BasketComponent} from './basket.component';
 import {DishesService} from "../menu/dishes.service";
 import {HttpClientModule} from "@angular/common/http";
-import {of} from "rxjs/internal/observable/of";
 import {Dish} from "../models/dish.model";
 
 describe('BasketComponent', () => {

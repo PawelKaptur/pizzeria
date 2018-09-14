@@ -50,7 +50,7 @@ describe('DishesService', () => {
 
   it('should calculate cost of basket items', inject([DishesService], (service: DishesService) => {
     const dish = <Dish>{
-      price: '5'
+      price: 5
     };
 
     service.addDishToBasket(dish);

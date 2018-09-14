@@ -7,13 +7,21 @@
     <input type="text" formControlName="description">
   </label>
   <label>Availability:
-    <input type="tel" formControlName="isAvailable">
+    <select id="availability" formControlName="isAvailable">
+      <option value="true">Available</option>
+      <option value="false">Not available</option>
+    </select>
   </label>
   <label>Type:
-    <input type="email" formControlName="type">
+    <select id="type" formControlName="type">
+      <option value="pizza">Pizza</option>
+      <option value="pasta">Pasta</option>
+      <option value="beverage">Beverage</option>
+    </select>
   </label>
   <label>Price:
-    <input type="text" formControlName="price">
+    <input type="number" formControlName="price">
   </label>
-  <button type="submit" [disabled]="!addressForm.valid">Add dish</button>
+  <button type="submit" [disabled]="!addDishForm.valid">Add dish</button>
 </form>
+<button routerLink="/">Main Page</button>

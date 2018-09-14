@@ -32,22 +32,22 @@ export class DishesService {
     return this.http.get<Dish[]>('/api/dishes/?type=beverage');
   }
 
-  getBasketDishes(): Dish[]{
+  getBasketDishes(): Dish[] {
     return this.basketDishes;
   }
 
-  addDishToBasket(dish: Dish): void{
+  addDishToBasket(dish: Dish): void {
     this.basketDishes.push(dish);
     this.calculateBasketCost();
   }
 
-  calculateBasketCost(): number{
+  calculateBasketCost(): number {
     this.basketCost = 0;
-    this.basketDishes.forEach(dish => this.basketCost+= parseFloat(dish.price));
+    this.basketDishes.forEach(dish => this.basketCost += dish.price);
     return this.basketCost;
   }
 
-  deleteFromBasket(index: number): void{
+  deleteFromBasket(index: number): void {
     this.basketDishes.splice(index, 1);
     this.calculateBasketCost();
   }
@@ -60,7 +60,7 @@ export class DishesService {
     return this.http.put<Dish>(`/api/dishes/${dish.id}`, dish);
   }
 
-  addDish(dish: Dish): Observable<Dish>{
+  addDish(dish: Dish): Observable<Dish> {
     return this.http.post<Dish>('/api/dishes', dish);
   }
 }
