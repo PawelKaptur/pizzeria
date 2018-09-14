@@ -3,7 +3,7 @@ import {Dish} from "../models/dish.model";
 import {DishesService} from "../menu/dishes.service";
 import {Subscription} from "rxjs/internal/Subscription";
 import {ActivatedRoute, Router} from "@angular/router";
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-dish-list-item-details',
@@ -42,13 +42,21 @@ export class DishesListItemDetailsComponent implements OnInit {
 
   makeForm() {
     this.dishForm = new FormGroup({
-      'name': new FormControl(),
-      'description': new FormControl(),
-      'price': new FormControl(),
+      'name': new FormControl('', [
+        Validators.required,
+        Validators.minLength(3)
+      ]),
+      'description': new FormControl('', [
+        Validators.required,
+        Validators.minLength(3)
+      ]),
+      'price': new FormControl('', [
+        Validators.required,
+        Validators.min(0.01)
+      ]),
       'isAvailable': new FormControl(),
       'type': new FormControl()
     });
-
   }
 
   changeAvailabilityOfDish() {
@@ -67,7 +75,7 @@ export class DishesListItemDetailsComponent implements OnInit {
     this.dish = this.dishForm.value;
     this.dish.id = dishId;
 
-    if(this.dishForm.get('isAvailable').value === 'true'){
+    if (this.dishForm.get('isAvailable').value === 'true') {
       this.dish.isAvailable = true;
     } else {
       this.dish.isAvailable = false;
