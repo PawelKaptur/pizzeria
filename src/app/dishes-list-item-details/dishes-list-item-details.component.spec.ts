@@ -5,9 +5,8 @@ import {DishesService} from "../menu/dishes.service";
 import {HttpClientModule} from "@angular/common/http";
 import {RouterTestingModule} from "@angular/router/testing";
 import {Dish} from "../models/dish.model";
-import {sp} from "@angular/core/src/render3";
-import any = jasmine.any;
 import {of} from "rxjs/internal/observable/of";
+import {ReactiveFormsModule} from "@angular/forms";
 
 describe('DishesListItemDetailsComponent', () => {
   let component: DishesListItemDetailsComponent;
@@ -21,7 +20,8 @@ describe('DishesListItemDetailsComponent', () => {
       ],
       imports: [
         RouterTestingModule,
-        HttpClientModule
+        HttpClientModule,
+        ReactiveFormsModule
       ]
     }).compileComponents();
   }));

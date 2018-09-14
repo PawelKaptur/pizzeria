@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Dish} from "../models/dish.model";
 import {DishesService} from "../menu/dishes.service";
 import {Subscription} from "rxjs/internal/Subscription";
@@ -24,18 +24,29 @@ export class DishesListItemDetailsComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.dishesService.getDish(+id)
-      .subscribe(res => this.dish = res);
+      .subscribe(res => {
+        this.dish = res;
+        if (this.dishForm) {
+          this.dishForm.setValue({
+            name: res.name,
+            description: res.description,
+            price: res.price,
+            isAvailable: res.isAvailable,
+            type: res.type
+          })
+        }
+      });
 
     this.makeForm();
   }
 
   makeForm() {
     this.dishForm = new FormGroup({
-      'name': new FormControl(this.dish.name),
-      'description': new FormControl(this.dish.description),
-      'price': new FormControl(this.dish.price),
-      'isAvailable': new FormControl(this.dish.isAvailable),
-      'type': new FormControl(this.dish.type)
+      'name': new FormControl(),
+      'description': new FormControl(),
+      'price': new FormControl(),
+      'isAvailable': new FormControl(),
+      'type': new FormControl()
     });
 
   }
@@ -55,6 +66,13 @@ export class DishesListItemDetailsComponent implements OnInit {
     let dishId = this.dish.id;
     this.dish = this.dishForm.value;
     this.dish.id = dishId;
+
+    if(this.dishForm.get('isAvailable').value === 'true'){
+      this.dish.isAvailable = true;
+    } else {
+      this.dish.isAvailable = false;
+    }
+
     this.sub = this.dishesService.editDish(this.dish).subscribe();
     alert('Edit');
   }

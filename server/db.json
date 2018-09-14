@@ -4,7 +4,7 @@
       "name": "Pizza Margherita",
       "description": "Sos, ser",
       "price": 22,
-      "isAvailable": "true",
+      "isAvailable": true,
       "type": "pizza",
       "id": 1
     },
@@ -12,7 +12,7 @@
       "name": "Pizza Funghi",
       "description": "Sos, ser, pieczarki",
       "price": 23.5,
-      "isAvailable": "false",
+      "isAvailable": false,
       "type": "pizza",
       "id": 2
     },
