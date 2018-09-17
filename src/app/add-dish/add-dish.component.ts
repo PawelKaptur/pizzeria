@@ -1,19 +1,21 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {DishesService} from "../services/dishes.service";
 import {Subscription} from "rxjs/internal/Subscription";
 import {Dish} from "../models/dish.model";
+import {Subject} from "rxjs/internal/Subject";
+import {takeLast, takeUntil} from "rxjs/operators";
 
 @Component({
   selector: 'app-add-dish',
   templateUrl: './add-dish.component.html',
   styleUrls: ['./add-dish.component.scss']
 })
-export class AddDishComponent implements OnInit {
+export class AddDishComponent implements OnInit, OnDestroy {
 
   dish: Dish;
-  sub: Subscription;
   addDishForm: FormGroup;
+  private readonly destroy$ = new Subject();
 
   constructor(private readonly dishesService: DishesService) { }
 
@@ -48,7 +50,12 @@ export class AddDishComponent implements OnInit {
       this.dish.isAvailable = false;
     }
 
-    this.sub = this.dishesService.addDish(this.addDishForm.value).subscribe();
-    alert('Dish was add.')
+    this.dishesService.addDish(this.addDishForm.value).pipe(takeUntil(this.destroy$)).subscribe();
+    alert('Dish was added.')
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }

@@ -1,19 +1,21 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {OrdersService} from "../services/orders.service";
 import {Subscription} from "rxjs/internal/Subscription";
 import {Order} from "../models/order.model";
 import {DishesService} from "../services/dishes.service";
 import {Dish} from "../models/dish.model";
+import {Subject} from "rxjs/internal/Subject";
+import {takeUntil} from "rxjs/operators";
 
 @Component({
   selector: 'app-address',
   templateUrl: './address.component.html',
   styleUrls: ['./address.component.scss']
 })
-export class AddressComponent implements OnInit {
+export class AddressComponent implements OnInit, OnDestroy {
 
-  sub: Subscription;
+  private readonly destroy$ = new Subject();
   order: Order;
   dishes: Dish[];
   dishesIds: number[];
@@ -63,12 +65,17 @@ export class AddressComponent implements OnInit {
     this.order.dishIds = this.dishesIds;
     this.order.state = 'Accepted';
     this.order.date = new Date();
-    this.sub = this.orderService.createOrder(this.order).subscribe();
+    this.orderService.createOrder(this.order).pipe(takeUntil(this.destroy$)).subscribe();
     alert("The order is accepted.");
   }
 
   getDishes(): void {
     this.dishes = this.dishesService.getBasketDishes();
     this.dishes.forEach(dish => this.dishesIds.push(dish.id));
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }
