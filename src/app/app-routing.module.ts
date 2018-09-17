@@ -2,13 +2,13 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {BasketComponent} from "./basket/basket.component";
 import {AddressComponent} from "./address/address.component";
-import {DishesListItemDetailsComponent} from "./dishes-list-item-details/dishes-list-item-details.component";
+import {DishesListItemDetailsComponent} from "./menu/dishes-list-item-details/dishes-list-item-details.component";
 import {OrdersListComponent} from "./orders-list/orders-list.component";
-import {OrdersListItemDetailsComponent} from "./orders-list-item-details/orders-list-item-details.component";
+import {OrdersListItemDetailsComponent} from "./orders-list/orders-list-item-details/orders-list-item-details.component";
 import {LoginComponent} from "./login/login.component";
 import {MenuComponent} from "./menu/menu.component";
 import {RouteGuard} from "./guards/RouteGuard";
-import {AddDishComponent} from "./add-dish/add-dish.component";
+import {AddDishComponent} from "./menu/add-dish/add-dish.component";
 
 
 const routes: Routes = [

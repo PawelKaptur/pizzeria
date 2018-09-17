@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
-import {Dish} from '../models/dish.model';
-import {DishesService} from "../services/dishes.service";
-import {LoginService} from "../services/login.service";
+import {Dish} from '../../models/dish.model';
+import {DishesService} from "../../services/dishes.service";
+import {LoginService} from "../../services/login.service";
 import {takeUntil} from "rxjs/operators";
 import {Subject} from "rxjs/internal/Subject";
 

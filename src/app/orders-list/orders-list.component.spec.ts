@@ -2,7 +2,7 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {OrdersListComponent} from './orders-list.component';
 import {OrdersService} from "../services/orders.service";
-import {OrdersListItemComponent} from "../orders-list-item/orders-list-item.component";
+import {OrdersListItemComponent} from "./orders-list-item/orders-list-item.component";
 import {HttpClientModule} from "@angular/common/http";
 import {RouterTestingModule} from "@angular/router/testing";
 

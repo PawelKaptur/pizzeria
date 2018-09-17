@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Dish} from "../models/dish.model";
-import {DishesService} from "../services/dishes.service";
+import {Dish} from "../../models/dish.model";
+import {DishesService} from "../../services/dishes.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {takeUntil} from "rxjs/operators";

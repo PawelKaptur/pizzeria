@@ -1,7 +1,7 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {DishesListItemDetailsComponent} from './dishes-list-item-details.component';
-import {DishesService} from "../services/dishes.service";
+import {DishesService} from "../../services/dishes.service";
 import {HttpClientModule} from "@angular/common/http";
 import {RouterTestingModule} from "@angular/router/testing";
 import {ReactiveFormsModule} from "@angular/forms";

@@ -1,7 +1,7 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {MenuComponent} from './menu.component';
-import {DishesListItemComponent} from "../dishes-list-item/dishes-list-item.component";
+import {DishesListItemComponent} from "./dishes-list-item/dishes-list-item.component";
 import {LoginService} from "../services/login.service";
 import {DishesService} from "../services/dishes.service";
 import {HttpClientModule} from "@angular/common/http";

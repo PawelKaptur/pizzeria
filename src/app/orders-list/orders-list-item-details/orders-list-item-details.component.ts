@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Order} from "../models/order.model";
-import {OrdersService} from "../services/orders.service";
+import {Order} from "../../models/order.model";
+import {OrdersService} from "../../services/orders.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Subject} from "rxjs/internal/Subject";
 import {takeUntil} from "rxjs/operators";

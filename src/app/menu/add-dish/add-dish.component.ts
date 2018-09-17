@@ -1,8 +1,8 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {DishesService} from "../services/dishes.service";
+import {DishesService} from "../../services/dishes.service";
 import {Subscription} from "rxjs/internal/Subscription";
-import {Dish} from "../models/dish.model";
+import {Dish} from "../../models/dish.model";
 import {Subject} from "rxjs/internal/Subject";
 import {takeLast, takeUntil} from "rxjs/operators";
 
