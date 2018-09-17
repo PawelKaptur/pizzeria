@@ -39,10 +39,10 @@ export class DishesListItemDetailsComponent implements OnInit, OnDestroy {
         }
       });
 
-    this.makeForm();
+    this.createForm();
   }
 
-  makeForm() {
+  createForm(): void {
     this.dishForm = new FormGroup({
       'name': new FormControl('', [
         Validators.required,
@@ -61,18 +61,13 @@ export class DishesListItemDetailsComponent implements OnInit, OnDestroy {
     });
   }
 
-  /*  changeAvailabilityOfDish() {
-      this.dish.isAvailable = !this.dish.isAvailable;
-      this.dishesService.changeAvailabilityOfDish(this.dish).pipe(takeUntil(this.destroy$)).subscribe();
-    }*/
-
-  deleteDish() {
+  deleteDish(): void {
     this.dishesService.deleteDishFromDatabase(this.dish).pipe(takeUntil(this.destroy$)).subscribe();
     this.router.navigate(['/']);
     alert('The dish was removed from database.');
   }
 
-  editDish() {
+  editDish(): void {
     let dishId = this.dish.id;
     this.dish = this.dishForm.value;
     this.dish.id = dishId;

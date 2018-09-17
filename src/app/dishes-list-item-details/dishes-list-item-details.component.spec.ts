@@ -4,9 +4,9 @@ import {DishesListItemDetailsComponent} from './dishes-list-item-details.compone
 import {DishesService} from "../services/dishes.service";
 import {HttpClientModule} from "@angular/common/http";
 import {RouterTestingModule} from "@angular/router/testing";
-import {Dish} from "../models/dish.model";
-import {of} from "rxjs/internal/observable/of";
 import {ReactiveFormsModule} from "@angular/forms";
+import {OrdersService} from "../services/orders.service";
+import {of} from "rxjs/internal/observable/of";
 
 describe('DishesListItemDetailsComponent', () => {
   let component: DishesListItemDetailsComponent;
@@ -34,5 +34,16 @@ describe('DishesListItemDetailsComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should call deleteDishFromDatabase from dishes service', () => {
+    let dishesService = TestBed.get(DishesService);
+    let removeDishSpy = spyOn(dishesService, 'deleteDishFromDatabase');
+
+    removeDishSpy.and.returnValue(of([]));
+
+    component.deleteDish();
+
+    expect(removeDishSpy).toHaveBeenCalled();
   });
 });
