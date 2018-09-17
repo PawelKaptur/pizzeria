@@ -35,8 +35,7 @@ export class OrdersListItemDetailsComponent implements OnInit, OnDestroy {
 
   changeStatusOfOrderToSend() {
     this.order.state = 'Send';
-    this.ordersService.changeStatusOfOrder(this.order).subscribe();
-
+    this.ordersService.changeStatusOfOrder(this.order).pipe(takeUntil(this.destroy$)).subscribe();
   }
 
   changeStatusOfOrderToDelivered() {

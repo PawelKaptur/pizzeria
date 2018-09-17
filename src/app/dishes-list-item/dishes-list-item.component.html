@@ -7,11 +7,17 @@
     <div class="price">
       <p>Price: {{dish.price}}</p>
     </div>
-    <div class="button-add" *ngIf="!loginService.isLogged">
+    <div class="price" *ngIf="loginService.isLogged">
+      <p>Availability: {{dish.isAvailable}}</p>
+    </div>
+    <div class="button-dish" *ngIf="!loginService.isLogged">
       <button class="add-to-basket" (click)="addItemToBasket()">Add to basket</button>
     </div>
-    <div *ngIf="loginService.isLogged">
+    <div class="button-dish" *ngIf="loginService.isLogged">
       <button class="button-preview" [routerLink]="['/dishes', dish.id]">Preview</button>
+    </div>
+    <div class="button-dish" *ngIf="loginService.isLogged">
+      <button (click)="changeAvailabilityOfDish()">Change availability</button>
     </div>
   </div>
 </div>

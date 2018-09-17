@@ -6,6 +6,7 @@ import {RouterTestingModule} from "@angular/router/testing";
 import {DishesService} from "../services/dishes.service";
 import {LoginService} from "../services/login.service";
 import {Dish} from "../models/dish.model";
+import {of} from "rxjs/internal/observable/of";
 
 
 describe('DishesListItemComponent', () => {
@@ -42,5 +43,19 @@ describe('DishesListItemComponent', () => {
     component.addItemToBasket();
 
     expect(addDishToBasket).toHaveBeenCalledWith(dish);
+  });
+
+  it('should change availability of dish to true', () => {
+    let dish: Dish = <Dish>{isAvailable: false};
+    const dishesService = TestBed.get(DishesService);
+    const changeAvailabilitySpy = spyOn(dishesService, 'changeAvailabilityOfDish');
+
+    changeAvailabilitySpy.and.returnValue(of([]));
+
+    component.dish = dish;
+    component.changeAvailabilityOfDish();
+
+    expect(component.dish.isAvailable).toBe(true);
+    expect(changeAvailabilitySpy).toHaveBeenCalled();
   });
 });

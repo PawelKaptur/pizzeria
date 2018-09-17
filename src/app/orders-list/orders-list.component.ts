@@ -11,10 +11,18 @@ import {Observable} from "rxjs/internal/Observable";
 export class OrdersListComponent implements OnInit {
 
   orders$: Observable<Order[]>;
+  interval: any;
 
   constructor(private readonly ordersService: OrdersService) { }
 
   ngOnInit() {
+    this.getOrders();
+    this.interval = setInterval(() => {
+      this.getOrders();
+    }, 20000);
+  }
+
+  getOrders(): void{
     this.orders$ = this.ordersService.getOrders();
   }
 }

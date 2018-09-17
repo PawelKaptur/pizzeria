@@ -1,7 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Dish} from "../models/dish.model";
 import {DishesService} from "../services/dishes.service";
-import {Subscription} from "rxjs/internal/Subscription";
 import {ActivatedRoute, Router} from "@angular/router";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {takeUntil} from "rxjs/operators";
@@ -62,10 +61,10 @@ export class DishesListItemDetailsComponent implements OnInit, OnDestroy {
     });
   }
 
-  changeAvailabilityOfDish() {
-    this.dish.isAvailable = !this.dish.isAvailable;
-    this.dishesService.changeAvailabilityOfDish(this.dish).pipe(takeUntil(this.destroy$)).subscribe();
-  }
+  /*  changeAvailabilityOfDish() {
+      this.dish.isAvailable = !this.dish.isAvailable;
+      this.dishesService.changeAvailabilityOfDish(this.dish).pipe(takeUntil(this.destroy$)).subscribe();
+    }*/
 
   deleteDish() {
     this.dishesService.deleteDishFromDatabase(this.dish).pipe(takeUntil(this.destroy$)).subscribe();
