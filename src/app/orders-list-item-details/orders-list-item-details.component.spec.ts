@@ -5,6 +5,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {RouterTestingModule} from "@angular/router/testing";
 import {OrdersService} from "../services/orders.service";
 import {of} from "rxjs/internal/observable/of";
+import {Order} from "../models/order.model";
+
 
 
 describe('OrdersListItemDetailsComponent', () => {
@@ -40,5 +42,20 @@ describe('OrdersListItemDetailsComponent', () => {
     component.removeOrder();
 
     expect(removeOrderSpy).toHaveBeenCalled();
+  });
+
+  it('should change state of order to accepted', () => {
+    let order: Order = <Order>{state: 'Send'};
+    const ordersService = TestBed.get(OrdersService);
+    let changeStateOfOrder = spyOn(ordersService, 'changeStateOfOrder');
+
+    changeStateOfOrder.and.returnValue(of([]));
+
+    component.order = order;
+
+    component.changeStateOfOrderToAccepted();
+
+    expect(component.order.state).toBe('Accepted');
+    expect(changeStateOfOrder).toHaveBeenCalled();
   });
 });

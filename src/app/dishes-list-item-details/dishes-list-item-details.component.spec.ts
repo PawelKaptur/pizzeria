@@ -5,7 +5,6 @@ import {DishesService} from "../services/dishes.service";
 import {HttpClientModule} from "@angular/common/http";
 import {RouterTestingModule} from "@angular/router/testing";
 import {ReactiveFormsModule} from "@angular/forms";
-import {OrdersService} from "../services/orders.service";
 import {of} from "rxjs/internal/observable/of";
 
 describe('DishesListItemDetailsComponent', () => {

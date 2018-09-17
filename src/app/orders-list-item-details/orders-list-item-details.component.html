@@ -10,9 +10,9 @@
   <p>Telephone: {{order.telephone}}</p>
   <p>Email: {{order.email}}</p>
 </div>
-<button (click)="changeStatusOfOrderToAccepted()">Accepted</button>
-<button (click)="changeStatusOfOrderToSend()">Send</button>
-<button (click)="changeStatusOfOrderToDelivered()">Delivered</button>
+<button (click)="changeStateOfOrderToAccepted()">Accepted</button>
+<button (click)="changeStateOfOrderToSend()">Send</button>
+<button (click)="changeStateOfOrderToDelivered()">Delivered</button>
 
 <button (click)="removeOrder()">Delete</button>
 <button routerLink="/orders">Back</button>

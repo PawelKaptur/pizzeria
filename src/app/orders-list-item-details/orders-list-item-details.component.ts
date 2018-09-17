@@ -28,24 +28,24 @@ export class OrdersListItemDetailsComponent implements OnInit, OnDestroy {
       .subscribe(res => this.order = res);
   }
 
-  changeStatusOfOrderToAccepted() {
+  changeStateOfOrderToAccepted() {
     this.order.state = 'Accepted';
-    this.ordersService.changeStatusOfOrder(this.order).pipe(takeUntil(this.destroy$)).subscribe();
+    this.ordersService.changeStateOfOrder(this.order).pipe(takeUntil(this.destroy$)).subscribe();
   }
 
-  changeStatusOfOrderToSend() {
+  changeStateOfOrderToSend() {
     this.order.state = 'Send';
-    this.ordersService.changeStatusOfOrder(this.order).pipe(takeUntil(this.destroy$)).subscribe();
+    this.ordersService.changeStateOfOrder(this.order).pipe(takeUntil(this.destroy$)).subscribe();
   }
 
-  changeStatusOfOrderToDelivered() {
+  changeStateOfOrderToDelivered() {
     this.order.state = 'Delivered';
-    this.ordersService.changeStatusOfOrder(this.order).pipe(takeUntil(this.destroy$)).subscribe();
+    this.ordersService.changeStateOfOrder(this.order).pipe(takeUntil(this.destroy$)).subscribe();
   }
 
   removeOrder() {
     this.ordersService.removeOrderFromDatabase(this.order).pipe(takeUntil(this.destroy$)).subscribe();
-    this.router.navigate(['/orders']);
+    this.router.navigate(['orders']);
     alert('Order was removed from database.');
   }
 
