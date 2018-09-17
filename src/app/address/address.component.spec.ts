@@ -1,14 +1,13 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {AddressComponent} from './address.component';
-import {OrdersService} from "../orders-list/orders.service";
-import {DishesService} from "../menu/dishes.service";
-import {FormGroup, ReactiveFormsModule} from "@angular/forms";
+import {OrdersService} from "../services/orders.service";
+import {DishesService} from "../services/dishes.service";
+import {ReactiveFormsModule} from "@angular/forms";
 import {BasketComponent} from "../basket/basket.component";
 import {HttpClientModule} from "@angular/common/http";
 import {Order} from "../models/order.model";
 import {of} from "rxjs/internal/observable/of";
-import {Dish} from "../models/dish.model";
 
 describe('AddressComponent', () => {
   let component: AddressComponent;

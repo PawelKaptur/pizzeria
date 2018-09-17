@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {Dish} from '../models/dish.model';
-import {DishesService} from "../menu/dishes.service";
-import {LoginService} from "../login/login.service";
+import {DishesService} from "../services/dishes.service";
+import {LoginService} from "../services/login.service";
 
 @Component({
   selector: 'app-dishes-list-item',

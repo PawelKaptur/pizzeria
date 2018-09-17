@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {LoginService} from "../login/login.service";
+import {LoginService} from "../services/login.service";
 import {Dish} from "../models/dish.model";
-import {DishesService} from "./dishes.service";
+import {DishesService} from "../services/dishes.service";
 import {Observable} from "rxjs/internal/Observable";
 
 @Component({

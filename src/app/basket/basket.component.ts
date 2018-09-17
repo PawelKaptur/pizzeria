@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Dish} from "../models/dish.model";
-import {DishesService} from "../menu/dishes.service";
+import {DishesService} from "../services/dishes.service";
 
 
 @Component({

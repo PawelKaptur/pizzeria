@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Order} from "../models/order.model";
-import {OrdersService} from "./orders.service";
+import {OrdersService} from "../services/orders.service";
 import {Observable} from "rxjs/internal/Observable";
 
 @Component({
@@ -17,5 +17,4 @@ export class OrdersListComponent implements OnInit {
   ngOnInit() {
     this.orders$ = this.ordersService.getOrders();
   }
-
 }

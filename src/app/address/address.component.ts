@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {OrdersService} from "../orders-list/orders.service";
+import {OrdersService} from "../services/orders.service";
 import {Subscription} from "rxjs/internal/Subscription";
 import {Order} from "../models/order.model";
-import {DishesService} from "../menu/dishes.service";
+import {DishesService} from "../services/dishes.service";
 import {Dish} from "../models/dish.model";
 
 @Component({
