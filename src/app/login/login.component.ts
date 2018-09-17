@@ -1,18 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {User} from "../models/user.model";
 import {LoginService} from "../services/login.service";
-import {Subscription} from "rxjs/internal/Subscription";
+import {Subject} from "rxjs/internal/Subject";
+import {takeUntil} from "rxjs/operators";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
+
+  private readonly destroy$ = new Subject();
 
   users: User[];
-  sub: Subscription;
   user: User;
 
   loginForm = new FormGroup({
@@ -25,7 +27,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.sub = this.loginService.getUsers().subscribe(res => this.users = res);
+    this.loginService.getUsers().pipe(takeUntil(this.destroy$)).subscribe(res => this.users = res);
   }
 
   login(): void {
@@ -41,5 +43,10 @@ export class LoginComponent implements OnInit {
     }
 
     alert('Wrong name and password.');
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }

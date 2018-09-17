@@ -1,20 +1,23 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Dish} from "../models/dish.model";
 import {DishesService} from "../services/dishes.service";
 import {Subscription} from "rxjs/internal/Subscription";
 import {ActivatedRoute, Router} from "@angular/router";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {takeUntil} from "rxjs/operators";
+import {Subject} from "rxjs/internal/Subject";
 
 @Component({
   selector: 'app-dish-list-item-details',
   templateUrl: './dishes-list-item-details.component.html',
   styleUrls: ['./dishes-list-item-details.component.scss']
 })
-export class DishesListItemDetailsComponent implements OnInit {
+export class DishesListItemDetailsComponent implements OnInit, OnDestroy {
 
   dish: Dish = <Dish>{};
-  sub: Subscription;
   dishForm: FormGroup;
+
+  private readonly destroy$ = new Subject();
 
   constructor(private readonly dishesService: DishesService,
               private readonly route: ActivatedRoute,
@@ -61,11 +64,11 @@ export class DishesListItemDetailsComponent implements OnInit {
 
   changeAvailabilityOfDish() {
     this.dish.isAvailable = !this.dish.isAvailable;
-    this.sub = this.dishesService.changeAvailabilityOfDish(this.dish).subscribe();
+    this.dishesService.changeAvailabilityOfDish(this.dish).pipe(takeUntil(this.destroy$)).subscribe();
   }
 
   deleteDish() {
-    this.sub = this.dishesService.deleteDishFromDatabase(this.dish).subscribe();
+    this.dishesService.deleteDishFromDatabase(this.dish).pipe(takeUntil(this.destroy$)).subscribe();
     this.router.navigate(['/']);
     alert('The dish was removed from database.');
   }
@@ -81,7 +84,12 @@ export class DishesListItemDetailsComponent implements OnInit {
       this.dish.isAvailable = false;
     }
 
-    this.sub = this.dishesService.editDish(this.dish).subscribe();
+    this.dishesService.editDish(this.dish).pipe(takeUntil(this.destroy$)).subscribe();
     alert('Dish was edited.');
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }
