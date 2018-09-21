@@ -29,8 +29,7 @@ describe('DishesService', () => {
   it('should get 2 dishes form basket', inject([DishesService], (service: DishesService) => {
     const dish = <Dish>{};
 
-    service.addDishToBasket(dish);
-    service.addDishToBasket(dish);
+    service.basketDishes = [dish, dish];
 
     expect(service.getBasketDishes().length).toBe(2);
   }));
@@ -39,10 +38,7 @@ describe('DishesService', () => {
   it('should delete dish form basket', inject([DishesService], (service: DishesService) => {
     const dish = <Dish>{};
 
-    service.addDishToBasket(dish);
-    service.addDishToBasket(dish);
-    service.addDishToBasket(dish);
-
+    service.basketDishes = [dish, dish, dish];
     service.deleteFromBasket(1);
 
     expect(service.basketDishes.length).toBe(2);
@@ -53,10 +49,8 @@ describe('DishesService', () => {
       price: 5
     };
 
-    service.addDishToBasket(dish);
-    service.addDishToBasket(dish);
-    service.addDishToBasket(dish);
-
+    service.basketDishes = [dish, dish, dish];
+    
     expect(service.calculateBasketCost()).toBe(15);
   }));
 });
