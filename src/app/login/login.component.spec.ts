@@ -4,10 +4,7 @@ import {LoginComponent} from './login.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClient, HttpHandler} from "@angular/common/http";
 import {Router} from "@angular/router";
-
-class RouterMock {
-
-}
+import {RouterTestingModule} from "@angular/router/testing";
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -17,10 +14,10 @@ describe('LoginComponent', () => {
     TestBed.configureTestingModule({
       declarations: [LoginComponent],
       providers: [HttpClient,
-        HttpHandler,
-        {provide: Router, useClass: RouterMock}
+        HttpHandler
       ],
-      imports: [ReactiveFormsModule]
+      imports: [ReactiveFormsModule,
+      RouterTestingModule]
     })
       .compileComponents();
   }));
