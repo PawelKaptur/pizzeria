@@ -50,7 +50,7 @@ describe('DishesService', () => {
     };
 
     service.basketDishes = [dish, dish, dish];
-    
+
     expect(service.calculateBasketCost()).toBe(15);
   }));
 });
