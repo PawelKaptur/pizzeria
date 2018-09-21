@@ -1,0 +1,5 @@
+<nav class="nav-bar">
+  <a id="basket" routerLink="/summary" *ngIf="!loginService.isLogged">Basket</a>
+  <a routerLink="/login" *ngIf="!loginService.isLogged">Log in</a>
+  <a (click)="loginService.logout()" *ngIf="loginService.isLogged">Log out</a>
+</nav>

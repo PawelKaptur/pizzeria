@@ -17,6 +17,7 @@ import {LoginComponent} from './login/login.component';
 import {MenuComponent} from './menu/menu.component';
 import {RouteGuard} from "./guards/RouteGuard";
 import { AddDishComponent } from './menu/add-dish/add-dish.component';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { AddDishComponent } from './menu/add-dish/add-dish.component';
     OrdersListItemDetailsComponent,
     LoginComponent,
     MenuComponent,
-    AddDishComponent
+    AddDishComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

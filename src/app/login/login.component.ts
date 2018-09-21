@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       alert('You are logged as ' + this.user.name);
       return;
     }
-    
+
     alert('Wrong name and password.');
   }
 
