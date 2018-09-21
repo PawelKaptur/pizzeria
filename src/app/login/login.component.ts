@@ -33,15 +33,12 @@ export class LoginComponent implements OnInit, OnDestroy {
   login(): void {
     this.user.name = this.loginForm.get('name').value;
     this.user.password = this.loginForm.get('password').value;
-    let i;
-    for(i = 0; i < this.users.length; i++){
-      if(this.users.find(u => u.name === this.user.name && u.password === this.user.password)){
-        this.loginService.loginAdmin();
-        alert('You are logged as ' + this.user.name);
-        return;
-      }
+    if(this.users.find(u => u.name === this.user.name && u.password === this.user.password)) {
+      this.loginService.loginAdmin();
+      alert('You are logged as ' + this.user.name);
+      return;
     }
-
+    
     alert('Wrong name and password.');
   }
 
