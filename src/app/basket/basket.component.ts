@@ -11,6 +11,7 @@ import {DishesService} from "../services/dishes.service";
 export class BasketComponent implements OnInit {
 
   dishes: Dish[];
+  basketCost: number;
 
   constructor(private readonly dishesService: DishesService) {
 
@@ -25,11 +26,11 @@ export class BasketComponent implements OnInit {
     this.setBasketCost();
   }
 
-  setBasketCost(): void{
-    document.getElementById('basket-cost').innerText = this.dishesService.calculateBasketCost().toString();
+  setBasketCost(): void {
+    this.basketCost = this.dishesService.calculateBasketCost();
   }
 
-  deleteFromBasket(index: number){
+  deleteFromBasket(index: number) {
     this.dishesService.deleteFromBasket(index);
     this.setBasketCost();
   }
