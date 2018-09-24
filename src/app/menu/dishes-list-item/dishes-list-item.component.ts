@@ -4,6 +4,7 @@ import {DishesService} from "../../services/dishes.service";
 import {LoginService} from "../../services/login.service";
 import {takeUntil} from "rxjs/operators";
 import {Subject} from "rxjs/internal/Subject";
+import {BasketService} from "../../services/basket.service";
 
 @Component({
   selector: 'app-dishes-list-item',
@@ -17,10 +18,11 @@ export class DishesListItemComponent {
   @Input() dish: Dish = <Dish>{};
 
   constructor(private readonly dishesService: DishesService,
+              private readonly basketService: BasketService,
               readonly loginService: LoginService) { }
 
   addItemToBasket(): void{
-    this.dishesService.addDishToBasket(this.dish);
+    this.basketService.addDishToBasket(this.dish);
   }
 
   changeAvailabilityOfDish() {

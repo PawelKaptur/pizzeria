@@ -7,6 +7,7 @@ import {DishesService} from "../services/dishes.service";
 import {Dish} from "../models/dish.model";
 import {Subject} from "rxjs/internal/Subject";
 import {takeUntil} from "rxjs/operators";
+import {BasketService} from "../services/basket.service";
 
 @Component({
   selector: 'app-address',
@@ -22,7 +23,8 @@ export class AddressComponent implements OnInit, OnDestroy {
   addressForm: FormGroup;
 
   constructor(private readonly orderService: OrdersService,
-              private readonly dishesService: DishesService) {
+              private readonly dishesService: DishesService,
+              private readonly basketService: BasketService) {
     this.dishesIds = [];
     this.order = <Order>{};
   }
@@ -70,7 +72,7 @@ export class AddressComponent implements OnInit, OnDestroy {
   }
 
   getDishes(): void {
-    this.dishes = this.dishesService.getBasketDishes();
+    this.dishes = this.basketService.getBasketDishes();
     this.dishes.forEach(dish => this.dishesIds.push(dish.id));
   }
 

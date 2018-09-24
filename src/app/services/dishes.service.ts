@@ -8,12 +8,8 @@ import {Observable} from 'rxjs/internal/Observable';
 })
 export class DishesService {
 
-  basketDishes: Dish[];
-  basketCost: number;
-
   constructor(readonly http: HttpClient) {
-    this.basketDishes = [];
-    this.basketCost = 0;
+
   }
 
   getDishes(): Observable<Dish[]> {
@@ -30,26 +26,6 @@ export class DishesService {
 
   getBeverage(): Observable<Dish[]> {
     return this.http.get<Dish[]>('/api/dishes/?type=beverage');
-  }
-
-  getBasketDishes(): Dish[] {
-    return this.basketDishes;
-  }
-
-  addDishToBasket(dish: Dish): void {
-    this.basketDishes.push(dish);
-    this.calculateBasketCost();
-  }
-
-  calculateBasketCost(): number {
-    this.basketCost = 0;
-    this.basketDishes.forEach(dish => this.basketCost += dish.price);
-    return this.basketCost;
-  }
-
-  deleteFromBasket(index: number): void {
-    this.basketDishes.splice(index, 1);
-    this.calculateBasketCost();
   }
 
   getDish(id: number): Observable<Dish> {

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Dish} from "../models/dish.model";
 import {DishesService} from "../services/dishes.service";
+import {BasketService} from "../services/basket.service";
 
 
 @Component({
@@ -13,7 +14,8 @@ export class BasketComponent implements OnInit {
   dishes: Dish[];
   basketCost: number;
 
-  constructor(private readonly dishesService: DishesService) {
+  constructor(private readonly dishesService: DishesService,
+              private readonly basketService: BasketService) {
 
   }
 
@@ -22,16 +24,16 @@ export class BasketComponent implements OnInit {
   }
 
   getBasketDishes(): void {
-    this.dishes = this.dishesService.getBasketDishes();
+    this.dishes = this.basketService.getBasketDishes();
     this.setBasketCost();
   }
 
   setBasketCost(): void {
-    this.basketCost = this.dishesService.calculateBasketCost();
+    this.basketCost = this.basketService.calculateBasketCost();
   }
 
   deleteFromBasket(index: number) {
-    this.dishesService.deleteFromBasket(index);
+    this.basketService.deleteFromBasket(index);
     this.setBasketCost();
   }
 }
