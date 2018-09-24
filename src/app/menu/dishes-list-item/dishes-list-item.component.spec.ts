@@ -7,6 +7,7 @@ import {DishesService} from "../../services/dishes.service";
 import {LoginService} from "../../services/login.service";
 import {Dish} from "../../models/dish.model";
 import {of} from "rxjs/internal/observable/of";
+import {BasketService} from "../../services/basket.service";
 
 
 describe('DishesListItemComponent', () => {
@@ -35,10 +36,10 @@ describe('DishesListItemComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should call addDishToBasket from DishesService', () => {
+  it('should call addDishToBasket from BasketService', () => {
     let dish: Dish = <Dish>{};
-    const dishesService = TestBed.get(DishesService);
-    const addDishToBasket = spyOn(dishesService, 'addDishToBasket');
+    const basketService = TestBed.get(BasketService);
+    const addDishToBasket = spyOn(basketService, 'addDishToBasket');
 
     component.addItemToBasket();
 

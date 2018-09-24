@@ -23,7 +23,6 @@ export class AddressComponent implements OnInit, OnDestroy {
   addressForm: FormGroup;
 
   constructor(private readonly orderService: OrdersService,
-              private readonly dishesService: DishesService,
               private readonly basketService: BasketService) {
     this.dishesIds = [];
     this.order = <Order>{};

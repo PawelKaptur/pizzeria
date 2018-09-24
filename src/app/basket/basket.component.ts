@@ -14,9 +14,7 @@ export class BasketComponent implements OnInit {
   dishes: Dish[];
   basketCost: number;
 
-  constructor(private readonly dishesService: DishesService,
-              private readonly basketService: BasketService) {
-
+  constructor(private readonly basketService: BasketService) {
   }
 
   ngOnInit(): void {

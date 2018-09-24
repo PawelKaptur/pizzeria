@@ -4,6 +4,7 @@ import {BasketComponent} from './basket.component';
 import {DishesService} from "../services/dishes.service";
 import {HttpClientModule} from "@angular/common/http";
 import {Dish} from "../models/dish.model";
+import {BasketService} from "../services/basket.service";
 
 describe('BasketComponent', () => {
   let component: BasketComponent;
@@ -13,7 +14,7 @@ describe('BasketComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ BasketComponent ],
       providers: [
-        DishesService
+        BasketService
       ],
       imports: [HttpClientModule]
     })
@@ -36,8 +37,8 @@ describe('BasketComponent', () => {
 
     dishes = [dish, dish];
 
-    const dishesService = TestBed.get(DishesService);
-    const getBasketDishesSpy = spyOn(dishesService, 'getBasketDishes');
+    const basketService = TestBed.get(BasketService);
+    const getBasketDishesSpy = spyOn(basketService, 'getBasketDishes');
 
     getBasketDishesSpy.and.returnValue(dishes);
 
@@ -47,9 +48,9 @@ describe('BasketComponent', () => {
     expect(getBasketDishesSpy).toHaveBeenCalled();
   });
 
-  it('should call calculateBasketCost form DishesService', () => {
-    const dishesService = TestBed.get(DishesService);
-    const calculateBasketCostSpy = spyOn(dishesService, 'calculateBasketCost');
+  it('should call calculateBasketCost form BasketService', () => {
+    const basketService = TestBed.get(BasketService);
+    const calculateBasketCostSpy = spyOn(basketService, 'calculateBasketCost');
 
     calculateBasketCostSpy.and.returnValue(20);
 
@@ -58,9 +59,9 @@ describe('BasketComponent', () => {
     expect(calculateBasketCostSpy).toHaveBeenCalled();
   });
 
-  it('should call deleteFromBasket from DishesService', () => {
-    const dishesService = TestBed.get(DishesService);
-    const deleteFromBasket = spyOn(dishesService, 'deleteFromBasket');
+  it('should call deleteFromBasket from BasketService', () => {
+    const basketSetvice = TestBed.get(BasketService);
+    const deleteFromBasket = spyOn(basketSetvice, 'deleteFromBasket');
 
     component.deleteFromBasket(1);
 
